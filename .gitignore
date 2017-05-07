@@ -1,0 +1,11 @@
+.idea
+coverage
+lib
+node_modules
+npm-debug.log
+.DS_Store
+publish.sh
+.c9
+pendingtest
+.nyc_output
+dist

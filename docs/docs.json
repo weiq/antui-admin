@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": {
+      "en-US": "Start",
+      "zh-CN": "开始"
+    },
+    "icon": "star-o",
+    "type": "page",
+    "link": "start"
+  },
+  {
+    "id": "2",
+    "name": {
+      "en-US": "Components",
+      "zh-CN": "组件"
+    },
+    "icon": "th",
+    "type": "menu",
+    "items": [
+      {
+        "name": "Button",
+        "version": "0.1.0",
+        "icon": "dot-circle-o",
+        "preview": "Button",
+        "component": "button/button"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": {
+      "en-US": "FAQ",
+      "zh-CN": "常见问题"
+    },
+    "icon": "book",
+    "type": "menu",
+    "items": [
+      {
+        "name": {
+          "en-US": "Get Started",
+          "zh-CN": "开始使用"
+        },
+        "icon": "gear",
+        "guide": {
+          "en-US": "getstarted.en-US.md",
+          "zh-CN": "getstarted.zh-CN.md"
+        }
+      }
+    ]
+  }
+]
