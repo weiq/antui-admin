@@ -56,9 +56,9 @@
     },
     "content": {
       "start": {
-        "bannerHeading": "AntUI-Admin 出色的使用体验, 以 React 呈现",
+        "bannerHeading": "AntUI-Admin 好看、易用、爱用",
         "demo": "展示",
-        "annc": "AntUI-Admin, 出于对于 React 和 Ant.Design 设计的热爱.  让开发者可以快速地开发, 我们将会在以后的版本加入更多便捷的功能.",
+        "annc": "AntUI-Admin, 专为桌面端开发，丰富的示例和活跃的社区支持，让开发者可以更快速地构建自己的应用.",
         "getstart": "开始使用",
         "component": "组件文档",
         "github": "Github",

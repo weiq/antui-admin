@@ -65,7 +65,7 @@ class Articles extends Component {
       });
     }
 
-    if (!this.editor) {
+    if (!this.editor && this.refs.codeblock) {
       let el = ReactDOM.findDOMNode(this.refs.codeblock);
 
       this.editor = CodeMirror.fromTextArea(el, {
@@ -79,7 +79,7 @@ class Articles extends Component {
       });
     }
 
-    if (this.props.code) this.editor.setValue(this.props.code);
+    if (this.props.code && this.refs.codeblock) this.editor.setValue(this.props.code);
   }
 
   render() {

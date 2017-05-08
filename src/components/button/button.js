@@ -12,7 +12,7 @@ export default class Button extends React.Component {
      */
     type: React.PropTypes.string,
     /**
-     * Options: normal, small
+     * 123123
      *
      */
     size: React.PropTypes.string,

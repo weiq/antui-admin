@@ -60,11 +60,13 @@ class Navigation extends Component {
               menus.map((item, i) => {
                 if (!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1) {
                   return ( 
-                    <Menu.Item key={"menu" + i} to={`/docs/${this.props.current.id}/articles/${i}`}>
-                      <div className="menu-item">
-                        <FontAwesome name={item.icon} size="2x" className="menu-icon" />
-                        <span className="menu-name">{typeof item.name === 'object' ? item.name[locale] : item.name}</span>
-                      </div>
+                    <Menu.Item key={"menu" + i}>
+                      <Link to={`/docs/${this.props.current.id}/articles/${i}`}>
+                        <div className="menu-item">
+                          <FontAwesome name={item.icon} size="2x" className="menu-icon" />
+                          <span className="menu-name">{typeof item.name === 'object' ? item.name[locale] : item.name}</span>
+                        </div>
+                      </Link>
                     </Menu.Item>
                   );
                 } else {
