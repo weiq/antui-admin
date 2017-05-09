@@ -4,7 +4,7 @@
   "description": "admin ui for antd",
   "main": "./lib",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8989",
+    "start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host 0.0.0.0 --port 8989",
     "start:example": "webpack-dev-server --hot --inline --progress --colors --port 8989",
     "clean": "rimraf ./lib ./coverage",
     "build:less": "",
