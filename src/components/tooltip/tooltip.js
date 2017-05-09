@@ -7,7 +7,7 @@ import './style.less';
 export default class Tooltip extends Component {
   static propTypes = {
     /**
-     * 提示文字
+     * 气泡提示
      */
     title: PropTypes.oneOfType([
       React.PropTypes.string,

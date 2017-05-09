@@ -33,7 +33,7 @@
         "component": "navpath/navpath"
       },
       {
-        "name": "Tooltip | 提示",
+        "name": "Tooltip | 气泡提示",
         "version": "0.1.0",
         "icon": "comment",
         "preview": "Tooltip",

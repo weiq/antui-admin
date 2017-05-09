@@ -6,7 +6,7 @@ class TooltipDemo extends React.Component {
   render() {
     const text = "hello Tooltip";
     return (
-      <Page title="Tooltip" subTitle="文字提示" desc="简单的提示气泡框">
+      <Page title="Tooltip" subTitle="气泡提示" desc="简单的提示气泡框">
         <nav>
           <h2>代码演示</h2>
           <h3>1. 最简单的使用</h3>
