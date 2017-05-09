@@ -1,12 +1,14 @@
 import version from './version';
 
-import { Button } from './components/button';
-import { Navpath } from './components/navpath';
-import { Tooltip } from './components/tooltip';
+import Button from './components/button';
+import Navpath from './components/navpath';
+import Tooltip from './components/tooltip';
+import Icon from './components/icon';
 
 export default {
   version,
   Button,
   Navpath,
-  Tooltip
+  Tooltip,
+  Icon
 };

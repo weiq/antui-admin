@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../src/index';
+import { Button } from '../../../src';
 import Page from '../../component/page';
 import './button.less';
 

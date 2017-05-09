@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router';
 import { Menu } from 'antd';
+import cx from 'classnames';
 import './style.less';
 
 class Navigation extends Component {
@@ -34,8 +35,7 @@ class Navigation extends Component {
       return (
         <Link
           to={`/docs/${i}/articles/0`}
-          className="navmenu__item"
-          activeClassName="active"
+          className={cx("navmenu__item", {"active": this.props.current.id === i + ""})}
           key={i}
           >
           <FontAwesome name={doc.icon} size="2x" />
