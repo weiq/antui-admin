@@ -1,0 +1,70 @@
+// font-face
+// @icon-url： 字体源文件的地址
+@font-face {
+  font-family: 'iconfont';
+  src: url('@{icon-url}.eot'); /* IE9*/
+  src: url('@{icon-url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@{icon-url}.woff') format('woff'), /* chrome、firefox */
+  url('@{icon-url}.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('@{icon-url}.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.@{iconfont-css-prefix} {
+ .iconfont-mixin();
+}
+
+.@{iconfont-css-prefix}-loading:before { content: "\eee3"; }              // 加载中
+.@{iconfont-css-prefix}-goods:before { content: "\e614"; }                // 全部商品
+.@{iconfont-css-prefix}-refund:before { content: "\e610"; }               // 退款
+.@{iconfont-css-prefix}-popupmsg:before { content: "\e60a"; }             // 待评价|气泡信息
+.@{iconfont-css-prefix}-car:before { content: "\e609"; }                  // 待收货|小汽车
+.@{iconfont-css-prefix}-pay:before { content: "\e602"; }                  // 待付款|钱包
+.@{iconfont-css-prefix}-wrap:before { content: "\e601"; }                 // 待发货|包裹
+.@{iconfont-css-prefix}-rmb:before { content: "\e6b0"; }                  // 人民币
+.@{iconfont-css-prefix}-card:before { content: "\e613"; }                 // 卡片展示
+.@{iconfont-css-prefix}-list:before { content: "\e612"; }                 // 列表展示
+.@{iconfont-css-prefix}-vipcard:before { content: "\e611"; }              // 会员卡
+.@{iconfont-css-prefix}-search:before { content: "\e6ac"; }               // 查询|放大镜
+.@{iconfont-css-prefix}-location:before { content: "\e734"; }             // 地址|地图汽泡
+.@{iconfont-css-prefix}-pulldown:before { content: "\e608"; }             // 下拉
+.@{iconfont-css-prefix}-order:before { content: "\e60f"; }                // 全部订单
+.@{iconfont-css-prefix}-mine-o:before { content: "\e60e"; }               // 我的
+.@{iconfont-css-prefix}-mine:before { content: "\e60d"; }                 // 我的-选中
+.@{iconfont-css-prefix}-shopping-cart-o:before { content: "\e60c"; }      // 购物车
+.@{iconfont-css-prefix}-shopping-cart:before { content: "\e60b"; }        // 购物车-选中
+.@{iconfont-css-prefix}-shopping-cart-a:before { content: "\e61c"; }      // 购物车-选中
+.@{iconfont-css-prefix}-password:before { content: "\e603"; }             // 密码
+.@{iconfont-css-prefix}-caret-right:before { content: "\e607"; }          // 三角右
+.@{iconfont-css-prefix}-caret-left:before { content: "\e606"; }           // 三角左
+.@{iconfont-css-prefix}-caret-down:before { content: "\e605"; }           // 三角下
+.@{iconfont-css-prefix}-caret-top:before { content: "\e604"; }            // 三角上
+.@{iconfont-css-prefix}-pixel-right:before { content: "\e600"; }          // 象素三角右
+.@{iconfont-css-prefix}-check:before { content: "\e616"; }                // 选择|对号
+.@{iconfont-css-prefix}-cross:before { content: "\e615"; }                // 关闭|叉号
+.@{iconfont-css-prefix}-right:before { content: "\e618"; }                // 右箭头
+.@{iconfont-css-prefix}-left:before { content: "\e617"; }                 // 左箭头
+.@{iconfont-css-prefix}-top:before { content: "\e619"; }                  // 上箭头
+.@{iconfont-css-prefix}-bottom:before { content: "\e61a"; }               // 下箭头
+.@{iconfont-css-prefix}-arrow-top:before { content: "\e795"; }            // 上箭头粗
+.@{iconfont-css-prefix}-arrow-bottom:before { content: "\e796"; }         // 下箭头粗
+.@{iconfont-css-prefix}-add:before { content: "\e727"; }                  // 加号
+.@{iconfont-css-prefix}-minus:before { content: "\e729"; }                // 减号
+.@{iconfont-css-prefix}-info-circle-o:before { content: "\e6e5"; }        // info|信息 圆 空心
+.@{iconfont-css-prefix}-info-circle:before { content: "\e6e4"; }          // info|信息 
+.@{iconfont-css-prefix}-warning-o:before { content: "\e663"; }            // 警告|三角叹号 空心
+.@{iconfont-css-prefix}-warning:before { content: "\e662"; }              // 警告|三角叹号
+.@{iconfont-css-prefix}-cross-circle-o:before { content: "\e659"; }       // 关闭|叉号 圆 空心
+.@{iconfont-css-prefix}-cross-circle:before { content: "\e658"; }         // 关闭|叉号 圆
+.@{iconfont-css-prefix}-check-circle-o:before { content: "\e657"; }       // 对号|成功 圆 空心
+.@{iconfont-css-prefix}-check-circle:before { content: "\e656"; }         // 对号|成功 圆
+.@{iconfont-css-prefix}-delete:before { content: "\e61b"; }               // 删除|垃圾箱 
+.@{iconfont-css-prefix}-back:before { content: "\e63d"; }                 // 返回 
+.@{iconfont-css-prefix}-upload:before { content: "\e65a"; }               // 上传 
+.@{iconfont-css-prefix}-download:before { content: "\e61e"; }             // 下载 
+.@{iconfont-css-prefix}-up-circle:before { content: "\e6a0"; }            // 向上 圆 
+.@{iconfont-css-prefix}-down-circle:before { content: "\e69f"; }          // 向下 圆 
+
+.@{iconfont-css-prefix}-spin:before {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
