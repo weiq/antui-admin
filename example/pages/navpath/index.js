@@ -1,7 +1,6 @@
 import React from 'react';
-import { Navpath } from '../../../src/index';
+import { Navpath } from '../../../src';
 import Page from '../../component/page';
-import '../../../src/components/navpath/style.less';
 
 export default class NavpathDemo extends React.Component {
 

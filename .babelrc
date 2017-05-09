@@ -8,10 +8,15 @@
     "transform-class-properties",
     "add-module-exports",
     "transform-runtime",
-    ["import", [
+    ["import-demand", [
       {
-        "libraryName": "antd",
-        "style": true
+        "libName": "antd",
+        "cssPath": "style/css"
+      },
+      {
+        "libName": "../../../src",
+        "libPath": "components",
+        "cssPath": "style.less"
       }
     ]]
   ],

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { hashHistory, Router, Route } from 'react-router';
 import "babel-polyfill";
 import Pages from './index';
-const { Button } = Pages;
+const { Button, Navpage, Tooltip } = Pages;
 
 class App extends React.Component {
   static propTypes = {
@@ -25,6 +25,8 @@ ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <Route path="button" component={Button} />
+      <Route path="navpage" component={Navpage} />
+      <Route path="tooltip" component={Tooltip} />
     </Route>
   </Router>
 ), document.getElementById('container'));

@@ -54,6 +54,7 @@
     "babel-loader": "^6.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-import": "^1.1.1",
+    "babel-plugin-import-demand": "^0.1.2",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-plugin-transform-require-ignore": "0.0.2",

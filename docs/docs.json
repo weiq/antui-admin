@@ -28,9 +28,16 @@
       {
         "name": "Navpath | 导航栏",
         "version": "0.1.0",
-        "icon": "bars",
+        "icon": "map-signs",
         "preview": "Navpath",
         "component": "navpath/navpath"
+      },
+      {
+        "name": "Tooltip | 文字提示",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Tooltip",
+        "component": "tooltip/tooltip"
       }
     ]
   },

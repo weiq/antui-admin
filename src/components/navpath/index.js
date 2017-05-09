@@ -1,5 +1,3 @@
 import Navpath from './navpath';
 
-export default {
-  Navpath
-};
+export default Navpath;
