@@ -9,15 +9,15 @@ import './page.less';
 
 export default class Page extends React.Component {
   render() {
-    const {title, subTitle, spacing, className, children, footer} = this.props;
+    const {title, subTitle, desc, spacing, children, footer} = this.props;
 
     return (
-      <section className={`page ${className}`}>
+      <section className={`page`}>
         <div className="page__hd">
-          <h1 className="page__title">{title}</h1>
-          <p className="page__desc">{subTitle}</p>
+          <h1 className="page__title">{title} <span className="page__zn_CN">| {subTitle}</span></h1>
+          <span className="page__desc">{desc}</span>
         </div>
-        <div className={`page__bd ${spacing ? 'page__bd_spacing' : ''}`}>
+        <div className={`page__bd`}>
           {children}
         </div>
         {footer ? <div className="page__ft">

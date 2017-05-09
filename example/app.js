@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { hashHistory, Router, Route } from 'react-router';
 import "babel-polyfill";
 import Pages from './index';
+
 const { Button, Navpage, Tooltip } = Pages;
 
 class App extends React.Component {
@@ -12,9 +13,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div
-        style={{ height: '100%' }}
-      >
+      <div style={{ height: '100%' }}>
         {this.props.children}
       </div>
     );
