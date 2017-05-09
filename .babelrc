@@ -15,8 +15,7 @@
       },
       {
         "libName": "../../../src",
-        "libPath": "components",
-        "cssPath": "style.less"
+        "libPath": "components"
       }
     ]]
   ],
