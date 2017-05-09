@@ -19,11 +19,18 @@
     "type": "menu",
     "items": [
       {
-        "name": "Button",
+        "name": "Button | 按钮",
         "version": "0.1.0",
         "icon": "dot-circle-o",
         "preview": "Button",
         "component": "button/button"
+      },
+      {
+        "name": "Navpath | 导航栏",
+        "version": "0.1.0",
+        "icon": "bars",
+        "preview": "Navpath",
+        "component": "navpath/navpath"
       }
     ]
   },
