@@ -1,6 +1,6 @@
-import Button from './pages/button/index';
-import Navpath from './pages/navpath/index';
-import Tooltip from './pages/tooltip/index';
+import Button from './pages/button';
+import Navpath from './pages/navpath';
+import Tooltip from './pages/tooltip';
 
 export default {
   Button,

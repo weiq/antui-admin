@@ -15,6 +15,9 @@ module.exports = {
     filename: './bundle.js'
   },
   devtool: 'source-map',
+  devServer: {
+    disableHostCheck: true,
+  },
   module: {
     loaders: [
       {

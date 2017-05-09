@@ -23,6 +23,7 @@
 .menuItems {
   position: relative;
   height: 100%;
+  flex: auto;
   .menu-item {
     .menu-icon{
       display: inline-block;
@@ -83,7 +84,7 @@
 
   .navmenu--bottom {
 
-    width: 40px !important;
+    width: auto !important;
     position: relative !important;
     display: inline-block;
   }
@@ -111,9 +112,11 @@
 }
 
 .navMenu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 180px;
-  height: 100%;
-  flex: none;
+  flex: auto;
   overflow-y: auto;
 }
 
@@ -129,10 +132,23 @@
 
 .navSidebar {
   max-width: 100px;
-  /*height: 100%;*/
   background: #eee;
-  flex: 1;
   position: relative;
+}
+
+.App__nav.nomenu{
+  .navSidebar {
+    flex: auto;
+  }
+}
+
+.App__nav.menu{
+  .navSidebar {
+    flex: none;
+    .navmenu__item p {
+      display: none;
+    }
+  }
 }
 
 .navmenu--bottom {
