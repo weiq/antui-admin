@@ -33,11 +33,18 @@
         "component": "navpath/navpath"
       },
       {
-        "name": "Tooltip | 文字提示",
+        "name": "Tooltip | 提示",
         "version": "0.1.0",
         "icon": "comment",
         "preview": "Tooltip",
         "component": "tooltip/tooltip"
+      },
+      {
+        "name": "Icon | 图标",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Icon",
+        "component": "icon/icon"
       }
     ]
   },
