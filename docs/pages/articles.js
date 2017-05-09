@@ -79,7 +79,9 @@ class Articles extends Component {
       });
     }
 
-    if (this.props.code && this.refs.codeblock) this.editor.setValue(this.props.code);
+    if (this.props.code && this.refs.codeblock) {
+      this.editor.setValue(this.props.code.replace('../../../src/index', 'antui-admin'));
+    }
   }
 
   render() {

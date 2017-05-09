@@ -47,7 +47,14 @@ module.exports = {
     new ExtractTextPlugin('antui-admin.min.css'),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'docs/index.html')
+      template: path.join(__dirname, 'docs/index.html'),
+      favicon: path.join(__dirname, 'docs/favicon.ico'),
+      hash: false,
+      filename: 'index.html',
+      inject: 'body',
+      minify: {
+        collapseWhitespace: true
+      }
     }),
   ]
 };
