@@ -67,6 +67,16 @@
           "en-US": "getstarted.en-US.md",
           "zh-CN": "getstarted.zh-CN.md"
         }
+      },
+      {
+        "name": {
+          "en-US": "Use Column",
+          "zh-CN": "column.js 用法"
+        },
+        "icon": "gear",
+        "guide": {
+          "zh-CN": "column.zh-CN.md"
+        }
       }
     ]
   }
