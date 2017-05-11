@@ -52,6 +52,27 @@
         "icon": "info-circle",
         "preview": "Icon",
         "component": "icon/icon"
+      },
+      {
+        "name": "Message | 全局提示",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Message",
+        "component": "message/message"
+      },
+      {
+        "name": "SearchBar",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "SearchBar",
+        "component": "searchbar/searchbar"
+      },
+      {
+        "name": "SliderContainer",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "SliderContainer",
+        "component": "slidercontainer/slidercontainer"
       }
     ]
   },
@@ -73,6 +94,16 @@
         "guide": {
           "en-US": "getstarted.en-US.md",
           "zh-CN": "getstarted.zh-CN.md"
+        }
+      },
+      {
+        "name": {
+          "en-US": "Use Column",
+          "zh-CN": "column.js 用法"
+        },
+        "icon": "gear",
+        "guide": {
+          "zh-CN": "column.zh-CN.md"
         }
       }
     ]
