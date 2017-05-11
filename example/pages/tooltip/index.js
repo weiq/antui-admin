@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '../../../src/index';
+import { Tooltip } from '../../../src';
 import Page from '../../component/page';
 
 class TooltipDemo extends React.Component {

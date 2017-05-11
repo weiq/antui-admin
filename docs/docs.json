@@ -45,14 +45,21 @@
         "icon": "comment",
         "preview": "Icon",
         "component": "icon/icon"
+      },
+      {
+        "name": "DataTable | 数据表格",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "DataTable",
+        "component": "datatable/datatable"
       }
     ]
   },
   {
     "id": "3",
     "name": {
-      "en-US": "FAQ",
-      "zh-CN": "常见问题"
+      "en-US": "Document",
+      "zh-CN": "帮助文档"
     },
     "icon": "book",
     "type": "menu",

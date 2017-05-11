@@ -19,6 +19,7 @@ column 反回为一个json数组
     },
     tableItem: {    // 生成表格结构
       width: 100,   // 表格元素宽度
+      type: 'oper|default' // 这个列
       render: (text, record) => (), // 自定义渲染
       ...other // 其它附加属性，会被注入对应的元素中, 参考antd Table的column配置
     },
