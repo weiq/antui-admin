@@ -20,10 +20,10 @@ export default class DataTableDemo extends React.Component {
         width: 120,
         render: (text, record) => (
           <DataTable.Oper>
-            <Button title="修改">
-              <Icon type="edit" />
+            <Button tooltip="密码">
+              <Icon type="password" />
             </Button>
-            <Button title="删除">
+            <Button tooltip="删除">
               <Icon type="delete" />
             </Button>
           </DataTable.Oper>
@@ -38,6 +38,30 @@ export default class DataTableDemo extends React.Component {
           <h3>1. 最简单的使用</h3>
           <section>
             <DataTable columns={columns} dataItems={dataItems} rowKey="roleId" />
+          </section>
+          <h3>2. 显示行号</h3>
+          <section>
+            <DataTable columns={columns} dataItems={dataItems} rowKey="roleId" 
+              showNum
+            />
+          </section>
+          <h3>3. 表格自带分页</h3>
+          <section>
+            <DataTable columns={columns} dataItems={dataItems} rowKey="roleId" 
+              pagination
+            />
+          </section>
+          <h3>4. 表格单选</h3>
+          <section>
+            <DataTable columns={columns} dataItems={dataItems} rowKey="roleId" 
+              selectType="radio"
+            />
+          </section>
+          <h3>5. 表格多选</h3>
+          <section>
+            <DataTable columns={columns} dataItems={dataItems} rowKey="roleId" 
+              selectType="checkbox"
+            />
           </section>
         </nav>
       </Page>

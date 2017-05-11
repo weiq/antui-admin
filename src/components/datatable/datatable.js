@@ -11,13 +11,13 @@ class DataTable extends Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
+    rowKey: PropTypes.string,
     /**
      * 详见帮助文档 column.js 用法
      */
     columns: PropTypes.array.isRequired, 
     /**
-     * 数据对像dataList为必需,如需表格自带分页需要在此提供分页信息 
-     * {currentPage:1, dataList:[], paramMap:{}, showCount:10, totalResult:12}
+     * 数据对像dataList为必需,如需表格自带分页需要在此提供分页信息 {currentPage:1, dataList:[], paramMap:{}, showCount:10, totalResult:12}
      */
     dataItems: PropTypes.object.isRequired, 
     /**
@@ -79,7 +79,7 @@ class DataTable extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextProps.items.dataList.length === 0) {
+    if (nextProps.dataItems.dataList.length === 0) {
       nextState.selectedRowKeys = [];
       nextState.selectedRows = [];
     }
@@ -91,12 +91,12 @@ class DataTable extends Component {
     let keys = selectType === "radio" ? [] : (this.state.selectedRowKeys || []);
     let rows = selectType === "radio" ? [] : (this.state.selectedRows || []);
     
-    let i = keys.indexOf(record.key);
+    let i = keys.indexOf(record[this.props.rowKey]);
     if (i !== -1) {
       keys.splice(i, 1);
       rows.splice(i, 1);
     } else {
-      keys.push(record.key);
+      keys.push(record[this.props.rowKey]);
       rows.push(record);
     }
     
@@ -162,7 +162,7 @@ class DataTable extends Component {
         width: 50,
         dataIndex: '_num',
         render (text, record, index) {
-          return index;
+          return index + 1;
         } 
       });
     }
