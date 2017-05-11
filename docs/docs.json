@@ -45,6 +45,13 @@
         "icon": "comment",
         "preview": "Icon",
         "component": "icon/icon"
+      },
+      {
+        "name": "Message | 全局提示",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Message",
+        "component": "message/message"
       }
     ]
   },

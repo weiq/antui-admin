@@ -2,7 +2,10 @@ import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 import './style.less';
 
-class Icon extends React.Component {
+/**
+ *  Icon
+ */
+export default class Icon extends React.Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     spin: PropTypes.bool,
@@ -21,5 +24,3 @@ class Icon extends React.Component {
     return <i className={classString} {...props}>{children}</i>;
   }
 }
-
-export default Icon;
