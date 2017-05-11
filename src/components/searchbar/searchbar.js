@@ -306,13 +306,13 @@ class SearchBar extends React.Component {
                 <Button.Group className="search-form-btn-inline">
                   <Button 
                     title="查询"
-                    onClick={e => ::this.searchForm()}  
+                    onClick={e => this.searchForm()}  
                     htmlType="submit"
                     icon="search"
                   />
                   <Button 
                     title="重置"
-                    onClick={e => ::this.resetForm()}
+                    onClick={e => this.resetForm()}
                     icon="reload"
                   />
                 </Button.Group>
@@ -321,13 +321,13 @@ class SearchBar extends React.Component {
                   <Button 
                     title="查询"
                     type="primary"
-                    onClick={e => ::this.searchForm()}  
+                    onClick={e => this.searchForm()}  
                     htmlType="submit"
                     icon="search"
                   >查询</Button>
                   <Button 
                     title="重置"
-                    onClick={e => ::this.resetForm()}
+                    onClick={e => this.resetForm()}
                     icon="reload"
                   >重置</Button>
                 </div>

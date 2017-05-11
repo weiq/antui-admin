@@ -3,6 +3,8 @@ import Navpath from './pages/navpath';
 import Tooltip from './pages/tooltip';
 import Icon from './pages/icon';
 import Message from './pages/message';
+import SearchBar from './pages/searchbar';
+import SliderContainer from './pages/slidercontainer';
 
 export default {
   Button,
@@ -10,4 +12,6 @@ export default {
   Tooltip,
   Icon,
   Message,
+  SearchBar,
+  SliderContainer,
 };
