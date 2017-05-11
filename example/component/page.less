@@ -10,11 +10,59 @@
 }
 
 .page__hd {
-  padding: 40px;
+  padding: 20px 20px 10px 30px;
 }
 
-.page__bd_spacing {
-  padding: 0 15px;
+.page__bd {
+  padding: 0 30px;
+  nav {
+    margin: 16px 0px;
+    h2 {
+      display: block;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e9e9e9;
+      margin-bottom: 8px;
+      font-size: 1.5em;
+      margin-before: 0.83em;
+      margin-after: 0.83em;
+      margin-start: 0px;
+      margin-end: 0px;
+      font-weight: bold; 
+    }
+    h3 {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.17em;
+      margin-before: 1em;
+      margin-after: 1em;
+      margin-start: 0px;
+      margin-end: 0px;
+      font-weight: bold;
+    }
+    h4 {
+      display: block;
+      margin-before: 1.33em;
+      margin-after: 1.33em;
+      margin-start: 0px;
+      margin-end: 0px;
+      font-weight: bold;
+    }
+    h5 {
+      display: block;
+      margin-before: 1.33em;
+      margin-after: 1.33em;
+      margin-start: 0px;
+      margin-end: 0px;
+    }
+    code {
+      display: block;
+      padding: 4px;
+      font-size: 12px;
+    }
+    h3 ~ code {
+      margin-bottom: 12px;
+    }
+  }
 }
 
 .page__ft{
@@ -34,8 +82,12 @@
 
 .page__title {
   text-align: left;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: monospace;
   font-weight: 400;
+  .page__zn_CN {
+    font-size: 20px;
+  }
 }
 
 .page__desc {
@@ -90,7 +142,7 @@
 .page.icons {
     text-align: center;
     .page__bd {
-        padding: 0 40px;
+        padding: 0 30px;
         text-align: left;
     }
     .icon-box{

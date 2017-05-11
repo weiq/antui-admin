@@ -4,7 +4,7 @@
   "description": "admin ui for antd",
   "main": "./lib",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --port 8989",
+    "start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host 0.0.0.0 --port 8989",
     "start:example": "webpack-dev-server --hot --inline --progress --colors --port 8989",
     "clean": "rimraf ./lib ./coverage",
     "build:less": "",
@@ -43,8 +43,9 @@
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.0",
     "mobile-detect": "^1.3.3",
-    "rc-notification": "^1.4.2",
-    "warning": "^3.0.0"
+    "rc-notification": "^1.4.2", 
+    "warning": "^3.0.0",
+    "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

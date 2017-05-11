@@ -92,14 +92,9 @@ class Navigation extends Component {
           </div>
           <ul className="navmenu">
             {this.renderSideBar()}
-            <div className="navmenu--bottom">
-              <a
-                className="navmenu__item"
-                onClick={e => this.setState({ showSetting: true })}
-                >
-                <FontAwesome name="cog" size="2x" />
-                <p>{langs.setting.title}</p>
-              </a>
+            <div className="navmenu__item">
+              <FontAwesome name="cog" size="2x" />
+              <p>{langs.setting.title}</p>
             </div>
           </ul>
         </nav>

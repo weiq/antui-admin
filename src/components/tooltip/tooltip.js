@@ -1,18 +1,23 @@
 import React, { Component, PropTypes } from 'react';
-import RcTooltip from 'rc-tooltip';
+import { Popover } from 'antd';
+import './style.less';
 /**
- *  NavPath
+ *  简单的提示气泡框。
  */
 export default class Tooltip extends Component {
   static propTypes = {
     /**
-     * 提示文字
+     * 气泡提示
      */
-    title: PropTypes.element.isRequired,
+    title: PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element
+    ]).isRequired,
     /**
      * 气泡框位置
      */
-    placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'leftTop', 'leftBottom', 'rightTop', 'rightBottom'])
+    placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'leftTop', 'leftBottom', 'rightTop', 'rightBottom']),
+    children: PropTypes.node,
   };
 
   static defaultProps = {
@@ -23,7 +28,9 @@ export default class Tooltip extends Component {
   render() {
     const { title, placement } = this.props;
     return (
-      <RcTooltip placement={placement} trigger={['click']} overlay={title} />
+      <Popover overlayClassName="antui-tooltip" placement={placement} content={title}>
+        {this.props.children}
+      </Popover>
     );
   }
 }
