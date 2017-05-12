@@ -7,7 +7,7 @@ import Icon from './components/icon';
 import DataTable from './components/datatable';
 import Layout from './components/layout';
 import Message from './components/message';
-import SearchBar from './components/searchbar';
+import SliderContainer from './components/slidercontainer';
 
 export default {
   version,
@@ -18,5 +18,5 @@ export default {
   DataTable,
   Layout,
   Message,
-  SearchBar,
+  SliderContainer,
 };
