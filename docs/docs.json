@@ -19,6 +19,13 @@
     "type": "menu",
     "items": [
       {
+        "name": "Layout | 布局",
+        "version": "0.1.0",
+        "icon": "th-large",
+        "preview": "Layout",
+        "component": "layout/layout"
+      },
+      {
         "name": "Button | 按钮",
         "version": "0.1.0",
         "icon": "dot-circle-o",
@@ -42,7 +49,7 @@
       {
         "name": "Icon | 图标",
         "version": "0.1.0",
-        "icon": "comment",
+        "icon": "info-circle",
         "preview": "Icon",
         "component": "icon/icon"
       },
