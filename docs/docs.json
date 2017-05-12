@@ -44,7 +44,8 @@
         "version": "0.1.0",
         "icon": "comment",
         "preview": "Tooltip",
-        "component": "tooltip/tooltip"
+        "component": "tooltip/tooltip",
+        "guide": "tooltip.zh-CN.md"
       },
       {
         "name": "Icon | 图标",

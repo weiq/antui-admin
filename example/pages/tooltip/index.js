@@ -37,10 +37,6 @@ class TooltipDemo extends React.Component {
             </Tooltip>
           </code>
         </nav>
-        <nav>
-          <h2>注意</h2>
-          <span>请确保 Tooltip 的子元素能接受 onMouseEnter、onMouseLeave 事件</span>
-        </nav>
       </Page>
     );
   }
