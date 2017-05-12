@@ -5,7 +5,7 @@ import Navpath from './components/navpath';
 import Tooltip from './components/tooltip';
 import Icon from './components/icon';
 import Message from './components/message';
-import SearchBar from './components/searchbar';
+import SliderContainer from './components/slidercontainer';
 
 export default {
   version,
@@ -14,5 +14,5 @@ export default {
   Tooltip,
   Icon,
   Message,
-  SearchBar,
+  SliderContainer,
 };

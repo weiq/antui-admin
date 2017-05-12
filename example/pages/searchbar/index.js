@@ -7,7 +7,7 @@ export default class SearchBarDemo extends React.Component {
 
   render() {
     return (
-      <Page className="searchbar" title="searchbar" subTitle="导航栏" spacing>
+      <Page className="searchbar" title="SearchBar" subTitle="" spacing>
         <div>
           <br />goods
         </div>
