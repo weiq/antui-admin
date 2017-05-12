@@ -6,7 +6,6 @@ import DataTable from './pages/datatable';
 import Layout from './pages/layout';
 import Message from './pages/message';
 import SearchBar from './pages/searchbar';
-import SliderContainer from './pages/slidercontainer';
 
 export default {
   Button,
@@ -17,5 +16,4 @@ export default {
   Layout,
   Message,
   SearchBar,
-  SliderContainer,
 };

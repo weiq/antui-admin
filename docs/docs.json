@@ -74,13 +74,6 @@
         "icon": "comment",
         "preview": "SearchBar",
         "component": "searchbar/searchbar"
-      },
-      {
-        "name": "SliderContainer",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "SliderContainer",
-        "component": "slidercontainer/slidercontainer"
       }
     ]
   },
