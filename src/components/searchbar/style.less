@@ -1,0 +1,134 @@
+// @import '../../styles/variables';
+
+.search-form{
+  form{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .search-item-s{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+
+    .search-item-label{
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .ant-input-wrapper{
+      flex: 1 1 auto;
+    }
+  }
+
+  input{
+    width: 100% !important;
+    max-width: 200px;
+  }
+
+  .search-form-btn{
+    display: flex;
+    justify-content: flex-end;
+    button {
+      flex: 0 0 auto;
+      margin: 5px;
+    }
+  }
+}
+
+.search-form-select-dropdown{
+  .ant-select-dropdown-menu-item{
+    overflow: initial;
+  }
+}
+
+.search-from-inline{ 
+  form {
+    display: inline-block;
+    
+    .search-item-s {
+      margin-left: -1px;
+      position: relative;
+      input {
+        border-radius: 0;
+        &:focus {
+          z-index: 2;
+        }
+      }
+      &:focus, &:hover{
+        z-index: 2;
+      }
+      .ant-select-open .ant-select-selection {
+        z-index: 2;
+      }
+    }
+
+    .ant-select-selection{
+      border-radius: 0;
+      margin-left: -1px;
+      margin-top: -1px;
+      position: relative;
+      .ant-select-search__field{
+        padding-right: 15px;
+      }
+    }
+    .ant-cascader-picker{
+      border-radius: 0;
+      margin-left: -1px;
+      margin-top: -1px;
+      position: relative;
+      vertical-align: bottom;
+    }
+    .ant-calendar-picker-input{
+      border-radius: 0;
+    }
+    .ant-input-wrapper > input,
+    .ant-select-selection{
+      &:focus,&:hover{
+        z-index: 2;
+      }
+    }
+    
+    > .search-item-s:first-child input {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+  
+  .search-form-btn-inline{
+    top: 0px;
+    margin-left: -1px;
+    > button:first-child{
+      border-radius: 0;
+    }
+  }
+}
+
+.ant-search-input-wrapper{
+  padding: 6px 6px 7px;
+  position: relative;
+  .ant-select-selection__clear {
+    right: 35px;
+  }
+
+  .ant-select-clear{
+    transition: color .2s;
+    position: absolute;
+    right: 43px;
+    margin-top: -9px;
+    z-index: 1;
+    background: #fff;
+    top: 50%;
+    font-size: 12px;
+    color: #ccc;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    &:hover{
+      color: #666;
+    }
+  }
+}

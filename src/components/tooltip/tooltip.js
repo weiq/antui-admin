@@ -17,11 +17,13 @@ export default class Tooltip extends Component {
      * 气泡框位置
      */
     placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'leftTop', 'leftBottom', 'rightTop', 'rightBottom']),
-    children: PropTypes.node,
+    /**
+     * 子元素
+     */
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
-    title: null,
     placement: "top"
   };
 

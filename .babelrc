@@ -11,7 +11,8 @@
     ["import-demand", [
       {
         "libName": "antd",
-        "cssPath": "style/css"
+        "cssPath": "style/css",
+        "spell": true
       },
       {
         "libName": "../../../src",
