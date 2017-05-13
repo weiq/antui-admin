@@ -1,52 +1,75 @@
-import React from 'react';
-import {Form, Button, Input, Select, Cascader, DatePicker, TreeSelect} from 'antd';
-// import notify from '../Notify';
-import moment from 'moment';
-
-const Option = Select.Option;
-
+import React, {PropTypes} from 'react';
+import {Form, Row, Col, Button, Input} from 'antd';
+import cx from 'classnames';
+import objectAssign from 'object-assign';
+import message from '../message';
 import './style.less';
 
 const createForm = Form.create;
-const MonthPicker = DatePicker.MonthPicker;
-const RangePicker = DatePicker.RangePicker;
 
 /**
- * 简单查询功能
- * fields={
-        name: ...,
-        type: 'Input',
-        placeholder: ...,
-        width: ...,
-   }
+ * 搜索条
  */
 class SearchBar extends React.Component {
   static propTypes = {
-    form: React.PropTypes.any,
-    columns: React.PropTypes.array.isRequired,
-    className: React.PropTypes.string,
-    onOk: React.PropTypes.func,
-    inline: React.PropTypes.bool,
-    searchable2: React.PropTypes.bool,
-    append: React.PropTypes.any
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
+    /**
+     * 详见帮助文档 column.js 用法
+     */
+    columns: PropTypes.array.isRequired, 
+    /**
+     * 搜索条类型 inline(行内)，grid(栅格)
+     */
+    type: PropTypes.string,
+    /**
+     * 搜索条件分组，设置这个属性后，会在column.js中过滤有相同group值的搜索项
+     */
+    group: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ]),
+    /**
+     * 同antd中Grid组件中的Row配置
+     */
+    rows: PropTypes.object,
+    /**
+     * 同antd中Grid组件中的Col配置
+     */
+    cols: PropTypes.object,
+    /**
+     * 额外搜索项
+     */
+    children: PropTypes.node,
+
+    form: PropTypes.object,
+
+    /**
+     * 点击查询按钮 onSearch(values, isReset) values 查询数据 isReset 是否是重置
+     */
+    onSearch: PropTypes.func,
   }
 
-  state = {
-    startDateValue: null,
-    endDateValue: null,
+  static defaultProps = {
+    prefixCls: "antui-searchbar",
+    type: "inline",
   }
-    
+
+  // 当type为grid时，指定每行元素个数
+  cols = {
+    xs: 8,
+    md: 6,
+    xl: 4
+  };
+
+  // 当type为grid时，指定每两个元素的间隔
+  rows = {
+    gutter: 8
+  }
+
   resetForm(e) {
     this.props.form.resetFields();
     this.searchForm(true);
-
-    const {startDateValue, endDateValue} = this.state;
-    if (startDateValue || endDateValue) {
-      this.setState({
-        startDateValue: null,
-        endDateValue: null,
-      });
-    }
   }
     
   searchForm(isReset) {
@@ -56,288 +79,128 @@ class SearchBar extends React.Component {
         Object.keys(errors).forEach(fieldName => {
           errs = errors[fieldName].errors || [];
         });
-        if (errs && errs.length) {
-          // notify.error(errs[0].message);
-        }
+        if (errs && errs.length) message.error(errs[0].message);
         return;
       }
       
-      this.props.onOk(values, isReset);
+      this.props.onSearch(values, isReset);
     });
   }
 
-  // start date //////////
-  disabledStartDate = (startDateValue) => {
-    if (!startDateValue || !this.state.endDateValue) {
-      return false;
-    }
-    return startDateValue >= this.state.endDateValue;
-  }
-
-  disabledEndDate = (endDateValue) => {
-    if (!endDateValue || !this.state.startDateValue) {
-      return false;
-    }
-    return endDateValue <= this.state.startDateValue;
-  }
-
-  onStartDateChange = (value) => {
-    this.setState({
-      startDateValue: value,
-    });
-  }
-
-  onEndDateChange = (value) => {
-    this.setState({
-      endDateValue: value,
-    });
-  }
-
-  setFieldsValue = (value) => {
-    this.props.form.setFieldsValue(value);
-  }
-
-  renderDate = (field) => {
-    const { getFieldProps } = this.props.form;
-
-    let props = {
-      style: {width: field.searchWidth || field.width || 120},
-      allowClear: field.allowClear,
-    };
-    let fieldProps = {};
-
-    if (field.start) {
-      props.disabledDate = this.disabledStartDate;
-      fieldProps.onChange = this.onStartDateChange;
-      fieldProps.value = this.state.startDateValue;
-      props.placeholder = field.placeholder || "开始日期";
-    }
-
-    if (field.end) {
-      props.disabledDate = this.disabledEndDate;
-      fieldProps.onChange = this.onEndDateChange;
-      fieldProps.value = this.state.endDateValue;
-      props.placeholder = field.placeholder || "结束日期";
-    }
-    
-    if (field.value) {
-      fieldProps.initialValue = moment(field.value);
-      if (field.start) this.state.startDateValue = moment(field.value);
-      if (field.end) this.state.endDateValue = moment(field.value);
-    }
-    
-    return <DatePicker
-      {...getFieldProps(field.name, {
-        ...fieldProps
-      })}
-      {...props}
-    />;
-  }
-
-  // end date ///
-    
   render () {
-    const {columns, inline, append, searchable2} = this.props;
-        
-    const { getFieldProps, setFieldsValue } = this.props.form;
+    const {className, prefixCls, type, rows, cols, columns, group, children, ...otherProps} = this.props;
 
-    let searchFields = searchable2 ? columns.filter(col => col.searchable2) 
-      : columns.filter(col => col.searchable);
+    let classname = cx(prefixCls, className, {
+      "form-inline": type === "inline",
+      "form-grid": type === "grid",
+    });
 
-    searchFields = searchFields || [];
+    const colopts = objectAssign(this.cols, cols);
+    const rowopts = objectAssign(this.rows, rows);
+
+    let ComponentRow = type === "inline" ? "section" : Row;
+    let ComponentCol = type === "inline" ? "div" : Col;
+
+    let ComponentBtnGroup = type === "inline" ? "div" : Button.Group;
+
+    const { getFieldDecorator, setFieldsValue } = otherProps.form;
+
+    let searchFields = columns.filter(col => col.searchItem);
+    searchFields = group ? searchFields.filter(col => col.searchItem && col.searchItem.group === group) : searchFields;
 
     let fields = searchFields.map(field => {
-      const {type, dict, dataIndex, title, treeData, onChange, ...other} = field;
+      const {type, onChange, placeholder, ...other} = field.searchItem;
       return {
         type: type || 'input',
-        dict: dict || [],
-        name: dataIndex, 
-        placeholder: title,
-        treeData: treeData || [],
+        dict: field.dict || [],
+        name: field.name, 
+        placeholder: field.title || placeholder,
+        treeData: field.treeData || [],
         onChange: onChange,
         ...other
       };
     });
-        
+
     return (
-      <div className={inline ? "search-from-inline" : "search-form"}>
-        {searchFields && searchFields.length > 0 ? (
-          <Form>
-            {
-              fields.map((field, i) => {
-                switch (field.type) {
-                  case 'date':
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
+      <Form className={classname}>
+        <ComponentRow className="row-item" {...rowopts}>
+          {
+            fields.map((field, i) => {
+              switch (field.type) {
+                case 'date':
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
                         {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
                         {this.renderDate(field)}
-                      </span>
-                    );
-                  case 'date~' : 
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <input type="hidden" {...getFieldProps(field.name[0])} />
-                        <input type="hidden" {...getFieldProps(field.name[1])} />
-                        <RangePicker
-                          disabled={field.disabled} 
-                          readOnly={field.readOnly} 
-                          style={{width: field.searchWidth || field.width || 200}}
-                          {...getFieldProps(field.name[0] + "_" + field.name[1], {
-                            onChange: field.onChange 
-                              ? (date, dateString) => field.onChange(date, dateString, this.props.form, field)
-                              : (value, dateString) => {
-                                setFieldsValue({
-                                  [field.name[0]]: value[0],
-                                  [field.name[1]]: value[1],
-                                  [field.name[0] + "_" + field.name[1]]: value
-                                });
-                              }
-                          })}
-                        />
-                      </span>
-                    );
-                  case 'monthDate' :
-                    let format = field.format || "YYYY-MM";
-                    let fieldProps = {};
-                    if (field.value) {
-                      fieldProps.initialValue = moment(field.value, format);
-                    }
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <MonthPicker 
-                          {...getFieldProps(field.name, {
-                            onChange: field.onChange ? (value) => field.onChange(value, this.props.form) : undefined,
-                            ...fieldProps
-                          })}
-                          placeholder={field.placeholder || '请输入查询条件'}
-                          format={format}
-                          allowClear={field.allowClear} 
-                        />
-                      </span>
-                    );
-                  case 'cascade':
-                  case 'cascader':
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <Cascader 
-                          className={inline ? "search-item-inline" : "search-item"}
-                          disabled={field.disabled} 
-                          options={field.treeData}
-                          style={{width: field.searchWidth || field.width || 150}}
-                          placeholder={field.placeholder || '请输入查询条件'}
-                          showSearch
-                          notFoundContent="空"
-                          changeOnSelect
-                          {...getFieldProps(field.name, {
-                            onChange: field.onChange ? (value, selectedOptions) => field.onChange(value, selectedOptions) : undefined
-                          })} 
-                        />
-                      </span>
-                    );
-                  case 'select' :
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <Select
-                          {...getFieldProps(field.name, {
-                            onChange: field.onChange ? (value) => field.onChange(value, this.props.form) : undefined
-                          })}
-                          allowClear
-                          showSearch
-                          optionFilterProp="children"
-                          style={{width: field.searchWidth || field.width || 100}}
-                          dropdownClassName="search-form-select-dropdown"
-                          notFoundContent="空"
-                          className={inline ? "search-item-inline" : "search-item"}
-                          placeholder={field.placeholder || '请输入查询条件'}
-                          >
-                          {
-                            field.dict.map((dic, i) =>
-                              <Option key={dic.code} value={dic.code} title={dic.codeName}>{dic.codeName}</Option>
-                            )
-                          }
-                        </Select>
-                      </span>
-                    );
-                  case 'treeSelect' :
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <TreeSelect
-                          {...getFieldProps(field.name, {
-                            onChange: field.onChange ? (value) => field.onChange(value, this.props.form) : undefined
-                          })}
-                          allowClear
-                          style={{ width: field.searchWidth || field.width || 220 }}
-                          dropdownStyle={{ maxHeight: 220, overflow: 'auto' }}
-                          treeData={field.treeData}
-                          placeholder={field.placeholder || '请输入查询条件'}
-                          treeDefaultExpandAll
-                        />
-                      </span>
-                    );
-                  default :
-                    return (
-                      <span className="search-item-s" key={field.name + "_key"}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        <Input 
-                          {...getFieldProps(field.name, {
-                            rules: [{
-                              pattern: /^[^'_%&<>=?*!]*$/,
-                              message: '查询条件中不能包含特殊字符'
-                            }]
-                          })}
-                          style={{width: field.searchWidth || field.width || 100}}
-                          className={inline ? "search-item-inline" : "search-item"}
+                    </ComponentCol>
+                  );
+                case 'date~' : 
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+
+                    </ComponentCol>
+                  );
+                case 'monthDate' :
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+
+                    </ComponentCol>
+                  );
+                case 'cascade':
+                case 'cascader':
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+
+                    </ComponentCol>
+                  );
+                case 'select' :
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+
+                    </ComponentCol>
+                  );
+                case 'treeSelect' :
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+
+                    </ComponentCol>
+                  );
+                default :
+                  return (
+                    <ComponentCol className="col-item" {...colopts}>
+                      <span className="search-item-label">{field.placeholder + "："}</span>
+                      {getFieldDecorator(field.name, {
+                        rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}],
+                      })(
+                        <Input
+                          className="search-item-content"
+                          style={{width: field.width || 100}}
                           placeholder={field.placeholder || '请输入查询条件'}
                           maxLength={field.maxLength || "100"}
                         />
-                      </span>
-                    ); 
-                }
-              })
-            }
-            {append}
-            {
-              inline ? (
-                <Button.Group className="search-form-btn-inline">
-                  <Button 
-                    title="查询"
-                    onClick={e => this.searchForm()}  
-                    htmlType="submit"
-                    icon="search"
-                  />
-                  <Button 
-                    title="重置"
-                    onClick={e => this.resetForm()}
-                    icon="reload"
-                  />
-                </Button.Group>
-              ) : (
-                <div className="search-form-btn">
-                  <Button 
-                    title="查询"
-                    type="primary"
-                    onClick={e => this.searchForm()}  
-                    htmlType="submit"
-                    icon="search"
-                  >查询</Button>
-                  <Button 
-                    title="重置"
-                    onClick={e => this.resetForm()}
-                    icon="reload"
-                  >重置</Button>
-                </div>
-              )
-            }
-          </Form>
-          )
-          : null
-        }
-      </div>
+                      )}
+                    </ComponentCol>
+                  ); 
+              }
+            })
+          }
+        </ComponentRow>
+        {children}
+        <ComponentBtnGroup className={type === "inline" ? "search-btn-inline" : "search-btn-grid"}>
+          <Button 
+            title="查询"
+            type="primary"
+            onClick={e => this.searchForm()}  
+            htmlType="submit"
+            icon="search"
+          >查询</Button>
+          <Button 
+            title="重置"
+            onClick={e => this.resetForm()}
+            icon="reload"
+          >重置</Button>
+        </ComponentBtnGroup>
+      </Form>
     );
   }
 }

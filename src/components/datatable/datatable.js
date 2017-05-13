@@ -143,9 +143,9 @@ class DataTable extends Component {
     }).map((col) => {
       let item = col.tableItem;
       // select 字典加强
-      if (item.dict && !item.render) {
+      if (col.dict && !item.render) {
         item.render = (text, record) => {
-          return item.dict && item.dict.filter(dic => dic.code === text).map(dic => dic.codeName)[0];
+          return col.dict && col.dict.filter(dic => dic.code === text).map(dic => dic.codeName)[0];
         };
       }
       return {

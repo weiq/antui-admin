@@ -69,7 +69,7 @@
         "component": "message/message"
       },
       {
-        "name": "SearchBar",
+        "name": "SearchBar | 搜索组件",
         "version": "0.1.0",
         "icon": "comment",
         "preview": "SearchBar",
