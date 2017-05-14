@@ -7,6 +7,7 @@ import Icon from './components/icon';
 import DataTable from './components/datatable';
 import Layout from './components/layout';
 import Message from './components/message';
+import Form from './components/form';
 
 export default {
   version,
@@ -17,4 +18,5 @@ export default {
   DataTable,
   Layout,
   Message,
+  Form,
 };

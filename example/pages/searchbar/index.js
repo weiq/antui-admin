@@ -4,6 +4,9 @@ import Page from '../../component/page';
 import './searchbar.less';
 
 export default class SearchBarDemo extends React.Component {
+  onSearch(values, isReset) {
+    console.log(values, isReset);
+  }
 
   render() {
     return (
@@ -12,11 +15,14 @@ export default class SearchBarDemo extends React.Component {
           <h2>代码演示</h2>
           <h3>行内搜索</h3>
           <section>
-            <SearchBar columns={columns} />
+            <SearchBar columns={columns1} onSearch={this.onSearch} />
+          </section>
+          <section>
+            <SearchBar columns={columns2} onSearch={this.onSearch} />
           </section>
           <h3>栅格搜索</h3>
           <section>
-            <SearchBar columns={columns} type="grid" />
+            <SearchBar columns={columns2} type="grid" onSearch={this.onSearch} />
           </section>
         </nav>
       </Page>
@@ -24,16 +30,36 @@ export default class SearchBarDemo extends React.Component {
   }
 };
 
-let columns = [{
+let columns1 = [{
+  title: "角色类型",
+  name: "roleType",
+  dict: [
+    {code: "1", codeName: "111"},
+    {code: "2", codeName: "222"},
+    {code: "3", codeName: "333"},
+  ],
+  searchItem: {
+    type: "select"
+  }
+}, {
   title: "角色名",
   name: "roleName",
-  searchItem: {
+  searchItem: {}
+}];
 
-  }
+let columns2 = [{
+  title: "角色名",
+  name: "roleName",
+  searchItem: {}
 }, {
   title: "角色类型",
   name: "roleType",
+  dict: [
+    {code: "1", codeName: "111"},
+    {code: "2", codeName: "222"},
+    {code: "3", codeName: "333"},
+  ],
   searchItem: {
-    
+    type: "select"
   }
 }];
