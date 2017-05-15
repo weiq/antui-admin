@@ -1,134 +1,81 @@
-// @import '../../styles/variables';
+@import "../../styles/themes/default";
 
-.search-form{
-  form{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  .search-item-s{
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    margin: 5px;
+@searchbar-prefix-cls: ~"@{antui-prefix}-searchbar";
 
-    .search-item-label{
-      flex: 0 0 auto;
-      white-space: nowrap;
-    }
-
-    .ant-input-wrapper{
-      flex: 1 1 auto;
-    }
-  }
-
-  input{
-    width: 100% !important;
-    max-width: 200px;
-  }
-
-  .search-form-btn{
-    display: flex;
-    justify-content: flex-end;
-    button {
-      flex: 0 0 auto;
-      margin: 5px;
-    }
-  }
-}
-
-.search-form-select-dropdown{
-  .ant-select-dropdown-menu-item{
-    overflow: initial;
-  }
-}
-
-.search-from-inline{ 
-  form {
-    display: inline-block;
-    
-    .search-item-s {
-      margin-left: -1px;
+// SearchBar styles
+// -----------------------------
+.@{searchbar-prefix-cls} {
+  &.form-inline{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    .row-item{
+      display: table-cell;
       position: relative;
-      input {
-        border-radius: 0;
-        &:focus {
+      .col-item{
+        float: left;
+        margin-bottom: 0;
+        position: relative;
+        &:hover{
+          z-index: 2;
+        }
+        .ant-input, .ant-select-selection{
+          &:focus, &:active{
+            z-index: 2;
+          }
+        } 
+        .ant-select-open .ant-select-selection{
           z-index: 2;
         }
       }
-      &:focus, &:hover{
-        z-index: 2;
+      .col-item:first-child .ant-input,
+      .col-item:first-child .ant-select .ant-select-selection{
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
       }
-      .ant-select-open .ant-select-selection {
-        z-index: 2;
+      
+      .col-item:last-child .ant-input,
+      .col-item:last-child .ant-select .ant-select-selection{
+        border-radius: 0;
+      }
+
+      .col-item:not(:first-child) .ant-input,
+      .col-item:not(:first-child) .ant-select{
+        margin-left: -1px;
       }
     }
-
-    .ant-select-selection{
-      border-radius: 0;
-      margin-left: -1px;
-      margin-top: -1px;
+    .search-btns{
+      float: left;
+      margin-bottom: 0;
       position: relative;
-      .ant-select-search__field{
-        padding-right: 15px;
-      }
-    }
-    .ant-cascader-picker{
-      border-radius: 0;
+      display: table-cell;
       margin-left: -1px;
-      margin-top: -1px;
-      position: relative;
-      vertical-align: bottom;
-    }
-    .ant-calendar-picker-input{
-      border-radius: 0;
-    }
-    .ant-input-wrapper > input,
-    .ant-select-selection{
-      &:focus,&:hover{
-        z-index: 2;
+      button{
+        padding-left: 8px;
+        padding-right: 8px;
+        > span {
+          display: none;
+        }
+      }
+      button:first-child{
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
       }
     }
-    
-    > .search-item-s:first-child input {
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
+  }
+  &.form-grid{
+    .row-item{
+      .col-item{
+        .col-item-content{
+          margin-bottom: 12px;
+        }
+      }
     }
-  }
-  
-  .search-form-btn-inline{
-    top: 0px;
-    margin-left: -1px;
-    > button:first-child{
-      border-radius: 0;
-    }
-  }
-}
-
-.ant-search-input-wrapper{
-  padding: 6px 6px 7px;
-  position: relative;
-  .ant-select-selection__clear {
-    right: 35px;
-  }
-
-  .ant-select-clear{
-    transition: color .2s;
-    position: absolute;
-    right: 43px;
-    margin-top: -9px;
-    z-index: 1;
-    background: #fff;
-    top: 50%;
-    font-size: 12px;
-    color: #ccc;
-    width: 12px;
-    height: 12px;
-    cursor: pointer;
-    &:hover{
-      color: #666;
+    .search-btns{
+      button{
+        margin-right: 5px;
+      }
     }
   }
 }

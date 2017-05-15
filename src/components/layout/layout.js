@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import { Children, cloneElement } from 'react';
+import React, { Component, PropTypes, Children, cloneElement } from 'react';
 import { Layout, Icon } from 'antd';
 import classNames from 'classnames';
 import Drawer from './drawer';

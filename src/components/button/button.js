@@ -1,32 +1,36 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {Button} from 'antd';
+import Tooltip from '../tooltip';
 import './style.less';
+
+const ButtonGroup = Button.Group;
 /**
  *  Button
  */
-export default class Button extends React.Component {
+class ButtonComp extends React.Component {
   static propTypes = {
-    disabled: React.PropTypes.bool,
     /**
-     * Options: primary, default, warn, vcode
-     *
+     * 是否用Tooltip组件显示提示信息
      */
-    type: React.PropTypes.string,
-    /**
-     * 123123
-     *
-     */
-    size: React.PropTypes.string,
+    tooltip: PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string
+    ]),
   };
 
   static defaultProps = {
-    disabled: false,
-    type: 'primary',
-    size: 'normal',
   };
 
   render() {
-    return (
-      <div>123</div>
-    );
+    const {tooltip, ...otherProps} = this.props;
+    return tooltip ? (
+      <Tooltip title={tooltip || otherProps.title}>
+        <Button {...otherProps} />
+      </Tooltip>
+    ) : <Button {...otherProps} />;
   }
 };
+
+ButtonComp.Group = ButtonGroup;
+
+export default ButtonComp;

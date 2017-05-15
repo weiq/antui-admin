@@ -36,7 +36,7 @@ import 'antui-admin/lib/antui-admin.min.css';
 class App extends Component {
   render() {
     return (
-      <Button>hello wechat</Button>
+      <Button>hello antui</Button>
     );
   }
 }
