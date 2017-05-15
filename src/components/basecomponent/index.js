@@ -24,6 +24,40 @@ class BaseComponent extends React.Component {
     this.options = props;
     //
     this.message = message;
+
+    this.enabledBtns = this._getEnabledBtns();
+  }
+
+  /**
+   * 反回按钮权限
+   * @return <Array> btns
+   */
+  _getEnabledBtns() {
+    let url2resId = this.session.getAttribute("url2resId");
+    let resId = url2resId && url2resId[location.pathname.split("/")[1]];
+    let opers = this.session.getAttribute("opers");
+    if (resId && opers && opers[resId + ""]) {
+      return opers[resId + ""];
+    }
+    return [];
+  }
+
+  /**
+   * 点击表格中的行时的回调
+   * @param keys 行key数组
+   * @param rows 行数据数组
+   */
+  onSelect = (keys, selectRows) => {
+    this.setState({
+      selectRows
+    });
+  }
+
+  /**
+   * 按钮通过这个方法反回是否有权限
+   */
+  hasBtnPermission = (btnName) => {
+    return !!btnName && this.enabledBtns.indexOf(btnName) !== -1;
   }
 
   onFetchData = ({currentPage, sortMap, paramMap, showCount}, fetchFunction) => {
@@ -42,6 +76,24 @@ class BaseComponent extends React.Component {
     this.fetchFunction = this.fetchFunction || fetchFunction;
     
     return this.fetchFunction && this.fetchFunction(_p);
+  }
+
+  getPaging(items, options = {}) {
+    return {
+      showSizeChanger: true,
+      showQuickJumper: true,
+      total: items.totalResult,
+      pageSize: items.showCount,
+      current: items.currentPage,
+      defaultCurrent: items.currentPage,
+      showTotal: total => `共 ${total} 条`,
+      pageSizeOptions: options.pageSizeOptions || ['10', '20', '50', '100'],
+      onShowSizeChange: (currentPage, showCount) => this.onFetchData({currentPage, showCount}),
+      onChange: (pagination, filters, sorter) => {
+        let currentPage = pagination.current || pagination;
+        this.onFetchData({currentPage});
+      }
+    };
   }
    
   /**

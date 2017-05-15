@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '../../../src/index';
+import { Tooltip, Button } from '../../../src';
 import Page from '../../component/page';
 
 class TooltipDemo extends React.Component {
@@ -18,16 +18,16 @@ class TooltipDemo extends React.Component {
           <h3>2. 气泡框位置</h3>
           <code>
             <Tooltip placement="top" title={text}>
-              <span style={{ marginRight: 8 }}>top</span>
+              <Button>top</Button>
             </Tooltip>
             <Tooltip placement="left" title={text}>
-              <span style={{ marginRight: 8 }}>left</span>
+              <Button>left</Button>
             </Tooltip>
             <Tooltip placement="right" title={text}>
-              <span style={{ marginRight: 8 }}>right</span>
+              <Button>right</Button>
             </Tooltip>
             <Tooltip placement="bottom" title={text}>
-              <span style={{ marginRight: 8 }}>bottom</span>
+              <Button>bottom</Button>
             </Tooltip>
           </code>
           <h3>3. react元素提示</h3>
@@ -36,10 +36,6 @@ class TooltipDemo extends React.Component {
               <span>提示的是一个react元素</span>
             </Tooltip>
           </code>
-        </nav>
-        <nav>
-          <h2>注意</h2>
-          <span>请确保 Tooltip 的子元素能接受 onMouseEnter、onMouseLeave 事件</span>
         </nav>
       </Page>
     );

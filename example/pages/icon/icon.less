@@ -1,0 +1,51 @@
+.icon-demo{
+  &-list{
+    color: #666;
+    > li {
+      margin: 9px 8px;
+      float: left;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+      border-radius: 5px;
+      padding: 8px 5px 0 5px;
+      width: 90px;
+      min-height: 90px;
+      transition: .3s all;
+      cursor: pointer;
+      > i {
+        font-size: 3em;
+        display: block;
+        margin-bottom: 10px;
+      }
+      > span {
+        white-space: normal;
+        word-wrap: break-word;
+      }
+      &:hover{
+        background: #607D8B;
+        color: #fff;
+      }
+
+      &:after{
+        content: "复制成功!";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0px;
+        color: #3eff00;
+        font-size: 13px;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      }
+
+      &.copied:hover{
+        color: tint(#607D8B, 10%);
+        &:after{
+           opacity: 1;
+           bottom: 35px;
+        }
+      }
+    }
+  }
+}

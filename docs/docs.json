@@ -44,7 +44,8 @@
         "version": "0.1.0",
         "icon": "comment",
         "preview": "Tooltip",
-        "component": "tooltip/tooltip"
+        "component": "tooltip/tooltip",
+        "guide": "tooltip.zh-CN.md"
       },
       {
         "name": "Icon | 图标",
@@ -54,6 +55,13 @@
         "component": "icon/icon"
       },
       {
+        "name": "DataTable | 数据表格",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "DataTable",
+        "component": "datatable/datatable"
+      },
+      {
         "name": "Message | 全局提示",
         "version": "0.1.0",
         "icon": "comment",
@@ -61,7 +69,7 @@
         "component": "message/message"
       },
       {
-        "name": "SearchBar",
+        "name": "SearchBar | 搜索组件",
         "version": "0.1.0",
         "icon": "comment",
         "preview": "SearchBar",
@@ -93,8 +101,8 @@
   {
     "id": "3",
     "name": {
-      "en-US": "FAQ",
-      "zh-CN": "常见问题"
+      "en-US": "Document",
+      "zh-CN": "帮助文档"
     },
     "icon": "book",
     "type": "menu",

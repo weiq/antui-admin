@@ -1,0 +1,63 @@
+{
+  "dataList": [
+    {
+      "roleId": "f21828424ecc467f8af4522391bb0b54",
+      "roleName": "test",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "bd8e4124f5264d41b6e6697cf72a57da",
+      "roleName": "1234",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "93749d934a284240a0178fad4cd1fc2b",
+      "roleName": "123 123   ",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "2877be52478d4eccb1451370a85cb46e",
+      "roleName": "数据角色",
+      "roleType": "1005002"
+    },
+    {
+      "roleId": "384839fbd0c24903a96f64577d80f19b",
+      "roleName": "管理员",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "91f5f1106c684b2ba5ae9fd8105d1586",
+      "roleName": "杨帆用",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "fa6efa44d99446158f1e4695be89a634",
+      "roleName": "业务代表",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "dfd9210099444bd2ad84b97af904eb37",
+      "roleName": "区域经理",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "5bbb82f56fc44cb8ac5d3fda96afb6d2",
+      "roleName": "部门经理",
+      "roleType": "1005001"
+    },
+    {
+      "roleId": "c5977a22ff03446bb5182b9b0925459c",
+      "roleName": "超级管理员",
+      "roleType": "1005001"
+    }
+  ],
+  "showCount": 10,
+  "totalPage": 2,
+  "totalResult": 12,
+  "currentPage": 1,
+  "currentResult": 0,
+  "columns": null,
+  "sortMap": null,
+  "paramMap": {},
+  "totalInfo": {}
+}
