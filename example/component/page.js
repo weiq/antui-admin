@@ -1,18 +1,13 @@
-/**
- * Created by jf on 15/12/10.
- */
-
-"use strict";
-
 import React from 'react';
+import cx from 'classnames';
 import './page.less';
 
 export default class Page extends React.Component {
   render() {
-    const {title, subTitle, desc, spacing, children, footer} = this.props;
+    const {title, subTitle, desc, children, footer, className} = this.props;
 
     return (
-      <section className={`page`}>
+      <section className={cx("page", className)}>
         <div className="page__hd">
           <h1 className="page__title">{title} <span className="page__zn_CN">| {subTitle}</span></h1>
           <span className="page__desc">{desc}</span>

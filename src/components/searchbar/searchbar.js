@@ -3,7 +3,7 @@ import {Form, Row, Col, Button, Input, Select} from 'antd';
 import cx from 'classnames';
 import objectAssign from 'object-assign';
 import message from '../message';
-import {InputForm, SelectForm} from '../form';
+import {InputForm, SelectForm, DateForm} from '../form';
 import './style.less';
 
 const createForm = Form.create;
@@ -62,6 +62,16 @@ class SearchBar extends React.Component {
     md: 6,
     xl: 4
   };
+
+  // 内联元素默认宽
+  width = {
+    'date': 100,
+    'monthDate': 100,
+    'date~': 280,
+    'datetime': 140,
+    'select': 100,
+    'default': 100,
+  }
 
   // 当type为grid时，指定每两个元素的间隔
   rows = {
@@ -133,23 +143,20 @@ class SearchBar extends React.Component {
           {
             fields.map((field, i) => {
               switch (field.type) {
-                case 'date':
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        {inline ? null : <span className="search-item-label">{field.placeholder + "："}</span>}
-                        {this.renderDate(field)}
-                    </ComponentCol>
-                  );
                 case 'date~' : 
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-
-                    </ComponentCol>
-                  );
+                case 'datetime': 
+                case 'date':
                 case 'monthDate' :
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-
+                    <ComponentCol key={`col-${i}`} className="col-item" {...objectAssign(colopts, field.type === "date~" && {"span": 2})}>
+                      <ComponentItem {...formItemLayout} label={field.placeholder} className="col-item-content">
+                        <DateForm 
+                          form={form}
+                          field={field}
+                          type={field.type}
+                          style={type === "inline" ? {width: field.width || this.width[field.type]} : {}}
+                        />
+                      </ComponentItem>
                     </ComponentCol>
                   );
                 case 'cascade':
@@ -168,7 +175,7 @@ class SearchBar extends React.Component {
                           field={field}
                           allowClear
                           showSearch
-                          style={type === "inline" ? {width: field.width || 100} : {}}
+                          style={type === "inline" ? {width: field.width || this.width[field.type]} : {}}
                           placeholder={field.placeholder || '请输入查询条件'}
                         />
                       </ComponentItem>
@@ -181,17 +188,14 @@ class SearchBar extends React.Component {
                     </ComponentCol>
                   );
                 default :
-                  let options = {rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]};
-
                   return (
                     <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
                       <ComponentItem {...formItemLayout} label={field.placeholder} className="col-item-content">
                         <InputForm 
                           form={form}
                           field={field}
-                          options={options}
-                          className="search-item-content"
-                          style={type === "inline" ? {width: field.width || 100} : {}}
+                          options={{rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]}}
+                          style={type === "inline" ? {width: field.width || this.width.default} : {}}
                           placeholder={field.placeholder || '请输入查询条件'}
                           maxLength={field.maxLength || "100"}
                         />
