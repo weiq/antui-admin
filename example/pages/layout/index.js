@@ -28,12 +28,12 @@ export default class LayoutDemo extends React.Component {
       <Page title="Layout" subTitle="布局" desc="页面级整体布局">
         <nav>
           <h2>组件概述</h2>
-          <h4>Layout：布局容器，其下可嵌套 Header Sider Content Footer Drawer 或 Layout 本身，可以放在任何父容器中。</h4>
-          <h4>Header：顶部容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中。</h4>
-          <h4>Sider：侧边容器，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 Layout 中。</h4>
-          <h4>Drawer：抽屉容器，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 Layout 下。</h4>
-          <h4>Content：内容容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中。</h4>
-          <h4>Footer：底部容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中。</h4>
+          <h4>Layout：布局容器，其下可嵌套 Header Sider Content Footer Drawer 或 Layout 本身，可以放在任何父容器中</h4>
+          <h4>Header：顶部容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中</h4>
+          <h4>Sider：侧边容器，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 Layout 中</h4>
+          <h4>Drawer：抽屉容器，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 Layout 中</h4>
+          <h4>Content：内容容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中</h4>
+          <h4>Footer：底部容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中</h4>
         </nav>
         <nav>
           <h2>代码演示</h2>

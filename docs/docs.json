@@ -73,6 +73,13 @@
         "icon": "comment",
         "preview": "SliderContainer",
         "component": "slidercontainer/slidercontainer"
+      },
+      {
+        "name": "TreeTransfer | 树穿梭框",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "TreeTransfer",
+        "component": "treetransfer/treetransfer"
       }
     ]
   },

@@ -7,6 +7,7 @@ import Icon from './components/icon';
 import Layout from './components/layout';
 import Message from './components/message';
 import SearchBar from './components/searchbar';
+import TreeTransfer from './components/treetransfer';
 
 export default {
   version,
@@ -17,4 +18,5 @@ export default {
   Layout,
   Message,
   SearchBar,
+  TreeTransfer
 };
