@@ -7,7 +7,6 @@ import Icon from './components/icon';
 import DataTable from './components/datatable';
 import Layout from './components/layout';
 import Message from './components/message';
-import SliderContainer from './components/slidercontainer';
 import Map from './components/map';
 import Editor from './components/editor';
 import Form from './components/form';
@@ -21,7 +20,6 @@ export default {
   DataTable,
   Layout,
   Message,
-  SliderContainer,
   Map,
   Editor,
   Form,

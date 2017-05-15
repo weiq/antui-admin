@@ -76,13 +76,6 @@
         "component": "searchbar/searchbar"
       },
       {
-        "name": "SliderContainer",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "SliderContainer",
-        "component": "slidercontainer/slidercontainer"
-      },
-      {
         "name": "Map | 地图",
         "version": "0.1.0",
         "icon": "comment",
