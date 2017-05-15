@@ -43,14 +43,11 @@
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.0",
     "mobile-detect": "^1.3.3",
-<<<<<<< HEAD
     "object-assign": "^4.1.1",
     "quill": "^1.2.4",
     "quill-delta": "^3.5.0",
     "rc-notification": "^1.4.2",
-=======
     "rc-drawer": "^0.4.9",
->>>>>>> 29886f7e66d223be5d4766208fd8d8b3604108a5
     "warning": "^3.0.0",
     "wolfy87-eventemitter": "^5.1.0"
   },
