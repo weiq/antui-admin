@@ -73,6 +73,20 @@
         "icon": "comment",
         "preview": "SliderContainer",
         "component": "slidercontainer/slidercontainer"
+      },
+      {
+        "name": "Map | 地图",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Map",
+        "component": "map/map"
+      },
+      {
+        "name": "Editor | 编辑器",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Editor",
+        "component": "editor/editor"
       }
     ]
   },

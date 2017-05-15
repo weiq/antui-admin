@@ -6,6 +6,8 @@ import Layout from './pages/layout';
 import Message from './pages/message';
 import SearchBar from './pages/searchbar';
 import SliderContainer from './pages/slidercontainer';
+import Map from './pages/map';
+import Editor from './pages/editor';
 
 export default {
   Button,
@@ -16,4 +18,6 @@ export default {
   Message,
   SearchBar,
   SliderContainer,
+  Map,
+  Editor,
 };

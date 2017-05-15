@@ -7,6 +7,8 @@ import Icon from './components/icon';
 import Layout from './components/layout';
 import Message from './components/message';
 import SliderContainer from './components/slidercontainer';
+import Map from './components/map';
+import Editor from './components/editor';
 
 export default {
   version,
@@ -17,4 +19,6 @@ export default {
   Layout,
   Message,
   SliderContainer,
+  Map,
+  Editor,
 };
