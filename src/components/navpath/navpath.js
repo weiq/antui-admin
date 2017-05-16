@@ -7,13 +7,14 @@ const SubMenu = Menu.SubMenu;
  */
 export default class Navpath extends Component {
   static propTypes = {
-    /**
-     * router 的路由栈信息
-     */
+    /** 菜单信息 */
+    catalog: PropTypes.array,
+    /** router 的路由栈信息 */
     routes: PropTypes.array,
   };
 
   static defaultProps = {
+    catalog: [],
     routes: []
   };
 
@@ -24,26 +25,34 @@ export default class Navpath extends Component {
       </Breadcrumb.Item>
     ));
 
-    // const menu = (
-    //   <Menu>
-    //     <Menu.Item>1st menu item</Menu.Item>
-    //     <Menu.Item>2nd menu item</Menu.Item>
-    //     <SubMenu title="sub menu">
-    //       <Menu.Item>3d menu item</Menu.Item>
-    //       <Menu.Item>4th menu item</Menu.Item>
-    //     </SubMenu>
-    //   </Menu>
-    // );
+    const loop = data => data.map((item) => {
+      const { name, path, children } = item;
+      if (children === undefined) {
+        return (
+          <Menu.Item key={path} >
+            <Link to={path}>{name}</Link>
+          </Menu.Item>
+        );
+      } else {
+        return (
+          <SubMenu key={path} title={<span style={{paddingRight: 24}}>{name}</span>}>
+            {loop(item.children)}
+          </SubMenu>
+        );
+      }
+    });
 
     return (
       <Breadcrumb className="antui-navpath">
-        {/*
-          <Dropdown overlay={menu}>
+        {
+          this.props.catalog.length === 0 ? null : (
             <Breadcrumb.Item key="home">
-              <Link to="/">目录</Link>
+              <Dropdown overlay={<Menu>{loop(this.props.catalog)}</Menu>}>
+                <Link to="/">目录</Link>
+              </Dropdown>
             </Breadcrumb.Item>
-          </Dropdown>
-        */}
+          )
+        }
         <Breadcrumb.Item key="home">
           <Link to="/">首页</Link>
         </Breadcrumb.Item>
