@@ -30,18 +30,19 @@
         }
       }
       .col-item:first-child .ant-input,
-      .col-item:first-child .ant-select .ant-select-selection{
+      .col-item:first-child .ant-select .ant-select-selection,
+      .col-item:first-child .ant-calendar-picker .ant-input{
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
       }
       
-      .col-item:last-child .ant-input,
-      .col-item:last-child .ant-select .ant-select-selection{
+      .col-item:not(:first-child) .ant-input,
+      .col-item:not(:first-child) .ant-select .ant-select-selection,
+      .col-item:not(:first-child) .ant-calendar-picker .ant-input {
         border-radius: 0;
       }
 
-      .col-item:not(:first-child) .ant-input,
-      .col-item:not(:first-child) .ant-select{
+      .col-item:not(:first-child) {
         margin-left: -1px;
       }
     }
@@ -67,6 +68,9 @@
   &.form-grid{
     .row-item{
       .col-item{
+        .ant-calendar-picker {
+          width: 100%;
+        }
         .col-item-content{
           margin-bottom: 12px;
         }
