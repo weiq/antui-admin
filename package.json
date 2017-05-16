@@ -119,6 +119,8 @@
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x",
-    "react-dom": "^0.14.x || 15.x"
+    "react-dom": "^0.14.x || 15.x",
+    "echarts": "~3.5.0",
+    "element-resize-event": "2.0.7"
   }
 }
