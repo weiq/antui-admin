@@ -101,6 +101,7 @@ export default class TreeTransfer extends React.Component {
 
   // tree checkbox click
   _handleTreeCheck = (checkedKeys) => {
+    console.log(checkedKeys);
     // filter tree leaf keys
     const treeCheckLeafKeys = checkedKeys.filter((_k) => this.state.treeLeafKeys.indexOf(_k) > -1);
     this.setState({ treeCheckLeafKeys });

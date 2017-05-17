@@ -125,6 +125,7 @@ class TreeTransferDemo extends React.Component {
 
   render() {
     const { dataSource, targetDemo1, targetDemo2 } = this.state;
+
     return (
       <Page title="TreeTransfer" subTitle="树穿梭框" desc="双栏穿梭选择框 其中，左边一栏为Tree">
         <nav>

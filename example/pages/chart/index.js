@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart } from '../../../src/index';
 import Page from '../../component/page';
 // chart import demand
-import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
@@ -12,21 +12,13 @@ import 'echarts/lib/component/tooltip';
 class ChartDemo extends React.Component {
 
   render() {
-    const lineOption = {
-      title: {
-        text: '折线图'
-      },
+    const barOption = {
+      color: ['#3398DB'],
       tooltip: {
         trigger: 'axis',
-        axisPointer: {
-          type: 'cross',
-          label: {
-            backgroundColor: '#6a7985'
-          }
+        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+          type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
-      },
-      legend: {
-        data: ['张三', '李四']
       },
       grid: {
         left: '3%',
@@ -37,8 +29,10 @@ class ChartDemo extends React.Component {
       xAxis: [
         {
           type: 'category',
-          boundaryGap: false,
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          axisTick: {
+            alignWithLabel: true
+          }
         }
       ],
       yAxis: [
@@ -48,18 +42,10 @@ class ChartDemo extends React.Component {
       ],
       series: [
         {
-          name: '张三',
-          type: 'line',
-          stack: '工作量',
-          areaStyle: {normal: {}},
-          data: [120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-          name: '李四',
-          type: 'line',
-          stack: '工作量',
-          areaStyle: {normal: {}},
-          data: [220, 182, 191, 234, 290, 330, 310]
+          name: '直接访问',
+          type: 'bar',
+          barWidth: '60%',
+          data: [10, 52, 200, 334, 390, 330, 220]
         }
       ]
     };
@@ -112,7 +98,7 @@ class ChartDemo extends React.Component {
           <h2>代码演示</h2>
           <h3>1. 最简单的使用</h3>
           <code>
-            <Chart option={lineOption} style={{width: '100%', height: 300}} />
+            <Chart option={barOption} style={{width: '100%', height: 300}} />
           </code>
           <h3>1. 事件监听事例</h3>
           <code>
