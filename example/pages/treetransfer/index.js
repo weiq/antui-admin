@@ -146,7 +146,7 @@ class TreeTransferDemo extends React.Component {
     const { dataSource, targetDemo1, targetDemo2, asyncTarget } = this.state;
 
     return (
-      <Page title="TreeTransfer" subTitle="树穿梭框" desc="双栏穿梭选择框 其中，左边一栏为Tree">
+      <Page title="TreeTransfer" subTitle="树穿梭框" desc="双栏穿梭选择框 其中，左边一栏为Tree" style={{width: '100vw'}}>
         <nav>
           <h2>代码演示</h2>
           <h3>1. 最简单的使用</h3>

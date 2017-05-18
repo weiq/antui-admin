@@ -57,18 +57,21 @@
 	    }
     }
     .antui-treetransfer-operation {
-    	display: inline-grid;
+    	display: inline-block;
 	    overflow: hidden;
 	    margin: 0 8px;
 	    vertical-align: middle;
-	    & button:first-child {
+      button{
+        display: block;
+      }
+	    button:first-child {
 	    	margin-bottom: 4px;
 	    }
     }
 	.antui-treetransfer-list.antui-treetransfer-left {
 		.antui-treetransfer-list-loading {
 			text-align: center;
-            margin: 16px 0;
+      margin: 16px 0;
 		}
 	}
 	.antui-treetransfer-list.antui-treetransfer-right {
