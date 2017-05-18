@@ -10,6 +10,7 @@ import TreeTransfer from './pages/treetransfer';
 import Map from './pages/map';
 import Editor from './pages/editor';
 import Form from './pages/form';
+import Chart from './pages/chart';
 
 export default {
   Button,
@@ -24,4 +25,5 @@ export default {
   Map,
   Editor,
   Form,
+  Chart,
 };

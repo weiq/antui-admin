@@ -102,6 +102,13 @@
         "icon": "comment",
         "preview": "TreeTransfer",
         "component": "treetransfer/treetransfer"
+      },
+      {
+        "name": "Chart | 图形组件",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Chart",
+        "component": "chart/chart"
       }
     ]
   },

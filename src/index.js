@@ -12,6 +12,7 @@ import TreeTransfer from './components/treetransfer';
 import Map from './components/map';
 import Editor from './components/editor';
 import Form from './components/form';
+import Chart from './components/chart';
 
 export default {
   version,
@@ -27,4 +28,5 @@ export default {
   Map,
   Editor,
   Form,
+  Chart,
 };
