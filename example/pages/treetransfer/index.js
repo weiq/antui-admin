@@ -1,6 +1,7 @@
 import React from 'react';
 import { TreeTransfer } from '../../../src/index';
 import Page from '../../component/page';
+const { AsyncTreeTransfer } = TreeTransfer;
 
 class TreeTransferDemo extends React.Component {
   constructor(props) {
@@ -93,7 +94,8 @@ class TreeTransferDemo extends React.Component {
         }
       ],
       targetDemo1: [],
-      targetDemo2: ["0-1-1", "1-1-1"]
+      targetDemo2: ["0-1-1", "1-1-1"],
+      asyncTarget: [{key: "0-1-1", title: "黑龙江大学"}, {key: "0-1-4", title: "哈尔滨商业大学"}]
     };
   }
 
@@ -109,22 +111,39 @@ class TreeTransferDemo extends React.Component {
     });
   }
 
-  onLoadTree = ({treeNode, searchValue, resolve}) => {
-    if (treeNode === undefined) { // 用于异步搜索树
+  asyncChange = (nodes) => {
+    console.log(nodes);
+    this.setState({
+      asyncTarget: nodes
+    });
+  }
+
+  onLoadTree = ({type, value, resolve}) => {
+    if (type === '_search') { // 用于异步搜索树
       setTimeout(() => {
-        console.log(`异步搜索关键字：${searchValue}`);
+        console.log(`异步搜索关键字：${value}`);
         resolve();
       }, 2000);
-    } else { // 异步节点加载
+    } else if (type === '_expand') { // 异步节点加载
       setTimeout(() => {
-        console.log(`异步加载节点：${treeNode.props.eventKey}`);
+        console.log(`异步加载节点：${value.props.eventKey}`);
+        resolve();
+      }, 2000);
+    } else if (type === '_load') {
+      setTimeout(() => {
+        console.log(`异步加载节点 ${value} 下的所有节点`);
+        const _ds = this.state.dataSource;
+        _ds[0].children[0].children.push({"key": "0-1-5", "title": "哈尔滨学院"});
+        this.setState({
+          dataSource: _ds
+        });
         resolve();
       }, 2000);
     }
   }
 
   render() {
-    const { dataSource, targetDemo1, targetDemo2 } = this.state;
+    const { dataSource, targetDemo1, targetDemo2, asyncTarget } = this.state;
 
     return (
       <Page title="TreeTransfer" subTitle="树穿梭框" desc="双栏穿梭选择框 其中，左边一栏为Tree">
@@ -144,7 +163,7 @@ class TreeTransferDemo extends React.Component {
           </code>
           <h3>4. 异步加载与搜索（模拟）</h3>
           <code>
-            <TreeTransfer dataSource={dataSource} targetKeys={targetDemo2} showSearch onChange={this.demo2Change} onLoadTree={this.onLoadTree} />
+            <AsyncTreeTransfer dataSource={dataSource} targetKeys={asyncTarget} showSearch onChange={this.asyncChange} onLoadTree={this.onLoadTree} />
           </code>
         </nav>
       </Page>

@@ -33,7 +33,7 @@ class TreeTitle extends React.Component {
           visibale ? (
             <span className="antui-tree-title-operate">
               <Tooltip title="选中全部子节点">
-                <Icon type="plus-square-o" onClick={onSelect} />
+                <Icon type="check-square-o" onClick={onSelect} />
               </Tooltip>
               <Tooltip title="取消选中全部子节点">
                 <Icon type="close-square-o" onClick={onCanel} />
