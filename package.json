@@ -50,7 +50,8 @@
     "rc-drawer": "^0.4.9",
     "warning": "^3.0.0",
     "wolfy87-eventemitter": "^5.1.0",
-    "element-resize-event": "2.0.7"
+    "element-resize-event": "2.0.7",
+    "echarts": "~3.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
@@ -120,7 +121,6 @@
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x",
-    "react-dom": "^0.14.x || 15.x",
-    "echarts": "~3.5.0"
+    "react-dom": "^0.14.x || 15.x"
   }
 }

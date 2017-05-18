@@ -27,6 +27,7 @@ export default class MapDemo extends React.Component {
     return (
       <Page className="map" title="Map" subTitle="地图" spacing>
         <Map 
+          mapKey="304ddf7cb9b6415d4db8ab8cf3d97e10"
           className="myMap"
           zoom={13}
           center={[126.66817904, 45.73754846]}

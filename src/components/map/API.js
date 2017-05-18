@@ -1,4 +1,3 @@
-import {MAP_KEY} from '../../config';
 import LoadAmapAPI from './amap';
 // import notify from '../Notify';
 /**
@@ -6,7 +5,7 @@ import LoadAmapAPI from './amap';
  * @param callback 加载完成后的回调函数
  */
 export const LoadAMapAPI = (callback, opts) => {
-  LoadAmapAPI({key: MAP_KEY, plugin: true, ...opts}).then((AMap) => {
+  LoadAmapAPI({plugin: true, ...opts}).then((AMap) => {
     callback && callback();
   }).catch((e) => {
     // notify.error(e.message);

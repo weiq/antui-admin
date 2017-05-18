@@ -2,7 +2,6 @@ import React from 'react';
 import LoadAmapAPI from './amap';
 // import notify from '../Notify';
 import objectAssign from 'object-assign';
-import {MAP_KEY} from '../../config';
 import './style.less';
 
 export default class Map extends React.Component {
@@ -13,6 +12,7 @@ export default class Map extends React.Component {
     zoom: React.PropTypes.number,
     onMapLoaded: React.PropTypes.func,
     children: React.PropTypes.node,
+    mapKey: React.PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -28,7 +28,7 @@ export default class Map extends React.Component {
 
   componentDidMount() {
     if (!window.AMap) {
-      LoadAmapAPI({key: MAP_KEY, plugin: true}).then((AMap) => {
+      LoadAmapAPI({key: this.props.mapKey, plugin: true}).then((AMap) => {
         this.initMap();
 
         this.setState({
