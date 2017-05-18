@@ -76,6 +76,13 @@
         "component": "searchbar/searchbar"
       },
       {
+        "name": "Form | 表单",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Form",
+        "component": "form/form"
+      },
+      {
         "name": "Map | 地图",
         "version": "0.1.0",
         "icon": "comment",

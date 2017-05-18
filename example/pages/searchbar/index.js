@@ -1,6 +1,7 @@
 import React from 'react';
 import { SearchBar } from '../../../src';
 import Page from '../../component/page';
+import {Input, Icon} from 'antd';
 import './searchbar.less';
 
 export default class SearchBarDemo extends React.Component {
@@ -21,6 +22,10 @@ export default class SearchBarDemo extends React.Component {
           <section>
             <SearchBar columns={columns3} onSearch={this.onSearch} />
           </section>
+          <h3>级联, 下接树</h3>
+          <section>
+            <SearchBar columns={columns5} onSearch={this.onSearch} />
+          </section>
           <h3>栅格搜索</h3>
           <section>
             <SearchBar columns={columns2} type="grid" onSearch={this.onSearch} />
@@ -32,13 +37,21 @@ export default class SearchBarDemo extends React.Component {
           <section>
             <SearchBar columns={columns4} type="grid" onSearch={this.onSearch} />
           </section>
+          <h3>级联, 下接树</h3>
+          <section>
+            <SearchBar columns={columns5} type="grid" onSearch={this.onSearch} />
+          </section>
+          <h3>自定义渲染</h3>
+          <section>
+            <SearchBar columns={columns6} type="grid" onSearch={this.onSearch} />
+          </section>
         </nav>
       </Page>
     );
   }
 };
 
-let columns1 = [{
+const columns1 = [{
   title: "角色类型",
   name: "roleType",
   dict: [
@@ -55,7 +68,7 @@ let columns1 = [{
   searchItem: {}
 }];
 
-let columns2 = [{
+const columns2 = [{
   title: "角色名",
   name: "roleName",
   searchItem: {}
@@ -72,7 +85,7 @@ let columns2 = [{
   }
 }];
 
-let columns3 = [{
+const columns3 = [{
   title: "选择时间",
   name: "date1",
   searchItem: {
@@ -92,7 +105,7 @@ let columns3 = [{
   }
 }];
 
-let columns4 = [{
+const columns4 = [{
   title: "条件1",
   name: "key1",
   searchItem: {}
@@ -128,4 +141,65 @@ let columns4 = [{
   title: "条件9",
   name: "key9",
   searchItem: {}
+}];
+
+const columns5 = [{
+  title: "address",
+  name: "key1",
+  searchItem: {
+    type: "cascade",
+    options: [{
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+      }],
+    }, {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+      }],
+    }]
+  }
+}, {
+  title: "address1",
+  name: "key2",
+  searchItem: {
+    type: "treeSelect",
+    treeData: [{
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+      }],
+    }, {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+      }],
+    }]
+  }
+}];
+
+const columns6 = [{
+  title: "自定义渲染",
+  name: "key",
+  searchItem: {
+    type: "custom",
+    render: (record, form) => {
+      // ...
+      const {getFieldDecorator} = form;
+      return getFieldDecorator('userName', {
+        rules: [{ required: true, message: '请输入用户名!' }],
+      })(
+        <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名" />
+      );
+    }
+  }
 }];

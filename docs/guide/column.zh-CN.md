@@ -10,6 +10,7 @@ column 反回为一个json数组
   {
     title: '年龄', // 列名
     name: 'age',  // 唯一标识
+    dict: [],     // 下拉或级联中用到的数据
     formItem: {    // 生成表单结构
       type: 'number', // 表单元素类型
       width: 100,  // 表单元素宽度

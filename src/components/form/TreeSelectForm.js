@@ -1,9 +1,11 @@
 import React from 'react';
-import {Select} from 'antd';
+import {TreeSelect} from 'antd';
 /**
- * 下拉菜单元件
+ * 下拉树菜单元件
  */
-export default ({form, name, dict, formFieldOptions = {}, record, initialValue, rules, onChange, ...otherProps}) => {
+export const TreeSelectForm = ({form, name, formFieldOptions = {}, 
+  children, record, initialValue, rules, onChange, ...otherProps}) => {
+  // --
   const { getFieldDecorator } = form;
 
   // 如果存在初始值
@@ -22,12 +24,10 @@ export default ({form, name, dict, formFieldOptions = {}, record, initialValue, 
   }
 
   return getFieldDecorator(name, formFieldOptions)(
-    <Select {...otherProps}>
-      {
-        dict.map((dic, i) =>
-          <Select.Option key={dic.code} value={dic.code} title={dic.codeName}>{dic.codeName}</Select.Option>
-        )
-      }
-    </Select>
+    <TreeSelect treeDefaultExpandAll {...otherProps}>
+      {children}
+    </TreeSelect>
   );
 };
+
+export default TreeSelectForm;

@@ -9,6 +9,7 @@ import SearchBar from './pages/searchbar';
 import TreeTransfer from './pages/treetransfer';
 import Map from './pages/map';
 import Editor from './pages/editor';
+import Form from './pages/form';
 
 export default {
   Button,
@@ -22,4 +23,5 @@ export default {
   TreeTransfer,
   Map,
   Editor,
+  Form,
 };
