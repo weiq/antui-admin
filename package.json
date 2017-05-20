@@ -17,7 +17,8 @@
     "test": "mocha --compilers js:babel-core/register --recursive -r ignore-styles -r jsdom-global/register",
     "test:watch": "npm run test -- --watch",
     "coverage": "npm run lint & nyc --require babel-core/register mocha -r ignore-styles -r jsdom-global/register && nyc report --reporter=lcov",
-    "c9start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host $IP --port $PORT"
+    "c9start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host $IP --port $PORT",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
