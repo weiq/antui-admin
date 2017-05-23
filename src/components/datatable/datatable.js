@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {Table} from 'antd';
 import objectAssign from 'object-assign';
 import cx from 'classnames';
-import './style.less';
 
 /**
  * 数据表格

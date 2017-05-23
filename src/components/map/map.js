@@ -2,7 +2,6 @@ import React from 'react';
 import LoadAmapAPI from './amap';
 // import notify from '../Notify';
 import objectAssign from 'object-assign';
-import './style.less';
 
 export default class Map extends React.Component {
   static propTypes = {

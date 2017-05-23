@@ -9,7 +9,6 @@ import CascadeForm from './CascadeForm';
 import TreeSelectForm from './TreeSelectForm';
 import CustomForm from './CustomForm';
 import PasswordForm from './PasswordForm';
-import './style.less';
 
 const createForm = Form.create;
 

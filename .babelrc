@@ -16,7 +16,8 @@
       },
       {
         "libName": "../../../src",
-        "libPath": "components"
+        "libPath": "components",
+        "cssPath": "style",
       }
     ]]
   ],

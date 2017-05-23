@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import defaultConfig from './default.config';
 import QuillMixin from './QuillMixin';
 import 'quill/dist/quill.snow.css';
-import './style.less';
 
 class Editor extends Component {
   static propTypes = {

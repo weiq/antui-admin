@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 import { Button, Checkbox, Input, Tree, Spin } from 'antd';
-import './style.less';
 const Search = Input.Search;
 const TreeNode = Tree.TreeNode;
 /**

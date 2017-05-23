@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Button} from 'antd';
 import Tooltip from '../tooltip';
-import './style.less';
 
 const ButtonGroup = Button.Group;
 /**

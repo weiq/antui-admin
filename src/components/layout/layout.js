@@ -2,7 +2,6 @@ import React, { Component, PropTypes, Children, cloneElement } from 'react';
 import { Layout, Icon } from 'antd';
 import classNames from 'classnames';
 import Drawer from './drawer';
-import './style.less';
 const { Header, Sider, Content, Footer } = Layout;
 /**
  * 页面级整体布局

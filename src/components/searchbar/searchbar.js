@@ -3,8 +3,6 @@ import {Form, Row, Col, Button, message} from 'antd';
 import cx from 'classnames';
 import objectAssign from 'object-assign';
 import {InputForm, SelectForm, DateForm, CascadeForm, TreeSelectForm, CustomForm} from '../form';
-import './style.less';
-
 const createForm = Form.create;
 
 /**

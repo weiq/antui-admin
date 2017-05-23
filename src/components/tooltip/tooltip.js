@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Popover } from 'antd';
-import './style.less';
 /**
  *  简单的提示气泡框。
  */

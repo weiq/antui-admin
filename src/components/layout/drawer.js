@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Icon, Button } from 'antd';
 import Drawer from 'rc-drawer';
 import 'rc-drawer/assets/index.css';
-import './style.less';
 /**
  * 抽屉
  */
