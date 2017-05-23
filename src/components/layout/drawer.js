@@ -15,7 +15,7 @@ class DrawerCmpt extends Component {
   };
 
   static defaultProps = {
-    visible: true,
+    visible: false,
     width: 360,
     placement: 'right',
   };
