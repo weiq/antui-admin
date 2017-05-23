@@ -1,5 +1,5 @@
 import React, { Component, PropTypes, Children, cloneElement } from 'react';
-import { Layout, Icon } from 'antd';
+import { Layout, Icon, Row } from 'antd';
 import classNames from 'classnames';
 import Drawer from './drawer';
 const { Header, Sider, Content, Footer } = Layout;
@@ -76,11 +76,26 @@ class ExtendsCmpt extends Component {
 
 class HeaderCmpt extends ExtendsCmpt {
   static __HEADER = true;
-  render() {
-    const { children, style } = this.props;
+  static propTypes = {
+    border: PropTypes.string,
+    justify: PropTypes.string,
+    align: PropTypes.string
+  };
 
+  static defaultProps = {
+    justify: 'start',
+    align: 'top'
+  };
+  render() {
+    const { children, justify, align, border, style } = this.props;
+    const headerClass = classNames(this._getClassName('header'), {
+      'antui-layout-header-top': border === 'top',
+      'antui-layout-header-bottom': border === 'bottom'
+    });
     return (
-      <Header className={this._getClassName('header')} style={style}>{ children }</Header>
+      <Header className={headerClass} style={style}>
+        <Row type="flex" justify={justify} align={align}>{ children }</Row>
+      </Header>
     );
   }
 }
@@ -131,20 +146,43 @@ class SiderCmpt extends ExtendsCmpt {
 
 class ContentCmpt extends ExtendsCmpt {
   static __CONTENT = true;
+  static propTypes = {
+    padding: PropTypes.number
+  };
+
+  static defaultProps = {
+    padding: 0
+  };
   render() {
-    const { children, style } = this.props;
+    const { children, padding, style } = this.props;
     return (
-      <Content className={this._getClassName('content')} style={style}>{ children }</Content>
+      <Content className={this._getClassName('content')} style={{...style, padding: padding}}>{ children }</Content>
     );
   }
 }
 
 class FooterCmpt extends ExtendsCmpt {
   static __FOOTER = true;
+  static propTypes = {
+    border: PropTypes.string,
+    justify: PropTypes.string,
+    align: PropTypes.string
+  };
+
+  static defaultProps = {
+    justify: 'center',
+    align: 'top'
+  };
   render() {
-    const { children, style } = this.props;
+    const { children, justify, align, border, style } = this.props;
+    const footerClass = classNames(this._getClassName('footer'), {
+      'antui-layout-footer-top': border === 'top',
+      'antui-layout-footer-bottom': border === 'bottom'
+    });
     return (
-      <Footer className={this._getClassName('footer')} style={style}>{ children }</Footer>
+      <Footer className={footerClass} style={style}>
+        <Row type="flex" justify={justify} align={align}>{ children }</Row>
+      </Footer>
     );
   }
 }

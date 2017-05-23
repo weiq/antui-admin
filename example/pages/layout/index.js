@@ -40,12 +40,15 @@ export default class LayoutDemo extends React.Component {
           <h3>最简单的使用</h3>
           <code>
             <Layout>
-              <Header>Header</Header>
+              <Header border="bottom" justify="space-between">
+                <div style={{backgroundColor: 'yellow'}}>left</div>
+                <div style={{backgroundColor: 'red'}}>right</div>
+              </Header>
               <Layout>
                 <Sider>Sider</Sider>
-                <Content>Content</Content>
+                <Content padding={8}>Content</Content>
               </Layout>
-              <Footer>Footer</Footer>
+              <Footer border="top">Footer</Footer>
             </Layout>
           </code>
           <h3>layout间隔</h3>

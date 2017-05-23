@@ -99,12 +99,7 @@ class SearchBar extends React.Component {
   }
 
   render () {
-    const {className, prefixCls, type, rows, cols, columns, group, children, form} = this.props;
-
-    let classname = cx(prefixCls, className, {
-      "form-inline": type === "inline",
-      "form-grid": type === "grid",
-    });
+    const {className, prefixCls, type, rows, cols, columns, group, children, form, ...otherProps} = this.props;
 
     const colopts = type === "grid" ? objectAssign(this.cols, cols) : {};
     const rowopts = type === "grid" ? objectAssign(this.rows, rows) : {};
@@ -122,130 +117,134 @@ class SearchBar extends React.Component {
     let searchFields = columns.filter(col => col.searchItem);
     searchFields = group ? searchFields.filter(col => col.searchItem && col.searchItem.group === group) : searchFields;
 
-    return (
-      <Form className={classname}>
-        <ComponentRow className="row-item" {...rowopts}>
-          {
-            searchFields.map((field, i) => {
-              let { placeholder, width, ...otherField } = objectAssign({
-                name: field.name, 
-                title: field.title,
-                placeholder: field.title,
-              }, field.searchItem);
+    delete otherProps.onSearch;
 
-              switch (field.searchItem.type) {
-                case 'date~' : 
-                case 'datetime': 
-                case 'date':
-                case 'monthDate' :
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <DateForm 
-                          form={form}
-                          type={field.searchItem.type}
-                          style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  );
-                case 'cascade':
-                case 'cascader':
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <CascadeForm 
-                          form={form}
-                          allowClear
-                          showSearch
-                          style={type === "inline" ? {width: width || this.width.default} : {}}
-                          placeholder={placeholder || '请输入查询条件'}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  );
-                case 'select' :
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <SelectForm 
-                          form={form}
-                          allowClear
-                          showSearch
-                          dict={field.dict}
-                          style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
-                          placeholder={placeholder || '请输入查询条件'}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  );
-                case 'treeSelect' :
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <TreeSelectForm 
-                          form={form}
-                          allowClear
-                          showSearch
-                          style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
-                          placeholder={placeholder || '请输入查询条件'}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  );
-                case 'custom' : 
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <CustomForm 
-                          form={form}
-                          render={field.searchItem.render}
-                          style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
-                          placeholder={placeholder || '请输入查询条件'}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  );
-                default :
-                  return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                      <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                        <InputForm 
-                          form={form}
-                          formFieldOptions={{rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]}}
-                          style={type === "inline" ? {width: width || this.width.default} : {}}
-                          placeholder={placeholder || '请输入查询条件'}
-                          maxLength={field.searchItem.maxLength || "100"}
-                          {...otherField}
-                        />
-                      </ComponentItem>
-                    </ComponentCol>
-                  ); 
-              }
-            })
-          }
-          {children}
-        </ComponentRow>
-        <ComponentBtnGroup className="search-btns">
-          <Button 
-            title="查询"
-            type={type === "grid" ? "primary" : "default"}
-            onClick={e => this.searchForm()}  
-            htmlType="submit"
-            icon="search"
-          >查询</Button>
-          <Button 
-            title="重置"
-            onClick={e => this.resetForm()}
-            icon="reload"
-          >重置</Button>
-        </ComponentBtnGroup>
-      </Form>
+    return (
+      <div className={cx(prefixCls, className)} {...otherProps}>
+        <Form className={cx({"form-inline": type === "inline", "form-grid": type === "grid"})}>
+          <ComponentRow className="row-item" {...rowopts}>
+            {
+              searchFields.map((field, i) => {
+                let { placeholder, width, ...otherField } = objectAssign({
+                  name: field.name, 
+                  title: field.title,
+                  placeholder: field.title,
+                }, field.searchItem);
+
+                switch (field.searchItem.type) {
+                  case 'date~' : 
+                  case 'datetime': 
+                  case 'date':
+                  case 'monthDate' :
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <DateForm 
+                            form={form}
+                            type={field.searchItem.type}
+                            style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    );
+                  case 'cascade':
+                  case 'cascader':
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <CascadeForm 
+                            form={form}
+                            allowClear
+                            showSearch
+                            style={type === "inline" ? {width: width || this.width.default} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    );
+                  case 'select' :
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <SelectForm 
+                            form={form}
+                            allowClear
+                            showSearch
+                            dict={field.dict}
+                            style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    );
+                  case 'treeSelect' :
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <TreeSelectForm 
+                            form={form}
+                            allowClear
+                            showSearch
+                            style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    );
+                  case 'custom' : 
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <CustomForm 
+                            form={form}
+                            render={field.searchItem.render}
+                            style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    );
+                  default :
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                          <InputForm 
+                            form={form}
+                            formFieldOptions={{rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]}}
+                            style={type === "inline" ? {width: width || this.width.default} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            maxLength={field.searchItem.maxLength || "100"}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    ); 
+                }
+              })
+            }
+            {children}
+          </ComponentRow>
+          <ComponentBtnGroup className="search-btns">
+            <Button 
+              title="查询"
+              type={type === "grid" ? "primary" : "default"}
+              onClick={e => this.searchForm()}  
+              htmlType="submit"
+              icon="search"
+            >查询</Button>
+            <Button 
+              title="重置"
+              onClick={e => this.resetForm()}
+              icon="reload"
+            >重置</Button>
+          </ComponentBtnGroup>
+        </Form>
+      </div>
     );
   }
 }
