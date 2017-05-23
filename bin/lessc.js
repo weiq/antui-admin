@@ -18,7 +18,7 @@ if ((0, _fs.existsSync)(dist)) {
     var cmptPath = (0, _path.join)(dist, cmpt, 'style');
     // 编译
     console.log(cmpt + '/style/index.less > ' + cmpt + '/style/index.css');
-    (0, _child_process.exec)('lessc ' + cmptPath + '/index.less > ' + cmptPath + '/index.css');
+    (0, _child_process.exec)('lessc --relative-urls ' + cmptPath + '/index.less > ' + cmptPath + '/index.css');
     // 创建 css.js
     console.log('touch ' + cmpt + '/style/css.js');
     (0, _fsExtra.outputFileSync)(cmptPath + '/css.js', cssjsFile, 'utf-8');
@@ -30,4 +30,4 @@ if ((0, _fs.existsSync)(dist)) {
 // 编译main less
 var lessPath = (0, _path.join)(__dirname, '../lib/style');
 console.log('style/index.less > /style/index.css');
-(0, _child_process.exec)('lessc ' + lessPath + '/index.less > ' + lessPath + '/index.css');
+(0, _child_process.exec)('lessc --relative-urls ' + lessPath + '/index.less > ' + lessPath + '/index.css');

@@ -13,7 +13,7 @@ if (existsSync(dist)) {
     const cmptPath = join(dist, cmpt, 'style');
     // 编译
     console.log(`${cmpt}/style/index.less > ${cmpt}/style/index.css`);
-    exec(`lessc ${cmptPath}/index.less > ${cmptPath}/index.css`);
+    exec(`lessc --relative-urls ${cmptPath}/index.less > ${cmptPath}/index.css`);
     // 创建 css.js
     console.log(`touch ${cmpt}/style/css.js`);
     outputFileSync(`${cmptPath}/css.js`, cssjsFile, 'utf-8');
@@ -25,4 +25,4 @@ if (existsSync(dist)) {
 // 编译main less
 const lessPath = join(__dirname, '../lib/style');
 console.log(`style/index.less > /style/index.css`);
-exec(`lessc ${lessPath}/index.less > ${lessPath}/index.css`);
+exec(`lessc --relative-urls ${lessPath}/index.less > ${lessPath}/index.css`);
