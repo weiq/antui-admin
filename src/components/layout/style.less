@@ -1,0 +1,90 @@
+.antui-layout {
+	height: 100%;
+	.antui-layout-header.ant-layout-header, .antui-layout-footer.ant-layout-footer, .antui-layout-sider.ant-layout-sider, .antui-layout-content.ant-layout-content {
+	    background: white;
+	}
+	.antui-layout-header.ant-layout-header {
+	    padding: 0 16px;
+	    height: 48px;
+	    line-height: 48px;
+	}
+	.antui-layout-footer.ant-layout-footer {
+	    padding: 16px 24px;
+	}
+	.antui-layout-gutter {
+		border-radius: 4px;
+		border: 1px solid #e9e9e9;
+		transition: all .3s;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+	}
+	.antui-layout-sider {
+		.antui-layout-sider-trigger {
+			position: absolute;
+		    top: 8px;
+		    right: -16px;
+		    text-align: center;
+		    width: 16px;
+		    height: 32px;
+		    line-height: 32px;
+		    background: #404040;
+		    color: #fff;
+		    font-size: 12px;
+		    border-radius: 0 4px 4px 0;
+		    cursor: pointer;
+		    transition: background .3s ease;
+		    z-index: 1;
+		}
+	}
+}
+
+.antui-layout-drawer {
+	height: 100%;
+	.rc-drawer {
+		position: relative;
+		height: 100%;
+		.rc-drawer-content {
+			height: 100%;
+			position: relative;
+		}
+		.rc-drawer-sidebar{
+			background-color: #fff;
+			.antui-layout-drawer-sidebar {	
+				.antui-layout-drawer-sidebar-header {
+					padding: 10px 16px;
+				    background: #fff;
+				    color: rgba(0, 0, 0, 0.65);
+				    font-family: 'Microsoft YaHei';
+				    border-bottom: 1px solid #e9e9e9;
+				    height: 42px;
+				    .antui-layout-drawer-sidebar-header-title {
+				    	font-size: 14px;
+					    line-height: 21px;
+					    font-weight: 500;
+					    color: rgba(0,0,0,.85);
+				    }
+				    .antui-layout-drawer-sidebar-header-close {
+				    	position: absolute;
+					    top: 10px;
+					    right: 16px;
+					    font-size: 16px;
+					    &:hover {
+					    	font-weight: 600;
+					    }
+				    }
+				}
+				.antui-layout-drawer-sidebar-body {
+					padding: 8px 8px 56px  8px;
+				}
+				.antui-layout-drawer-sidebar-footer {
+					position: absolute;
+    				bottom: 0;
+    				height: 48px;
+    				width: 100%;
+    				border-top: 1px solid #e9e9e9;
+    				padding: 8px;
+    				text-align: center;
+				}
+			}
+		}
+	}
+}
