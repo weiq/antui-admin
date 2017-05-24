@@ -4,9 +4,17 @@ import { outputFileSync } from 'fs-extra';
 import { exec } from 'child_process';
 
 const dist = join(__dirname, '../lib/components');
-const cssjsFile = "'use strict';\nrequire('../../../style/index.css');\nrequire('./index.css');";
+const cssjsFile = `'use strict';
 
-// 编译js（es6）至 es5
+var _theme = require('../../../utils/theme');
+
+var _theme2 = _interopRequireDefault(_theme);
+
+require('../../../style/index.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+require('./' + _theme2.default + '.css');`;
 
 if (existsSync(dist)) {
   readdirSync(dist).forEach((cmpt) => {

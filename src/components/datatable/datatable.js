@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Table} from 'antd';
+import {Table, Pagination} from 'antd';
 import objectAssign from 'object-assign';
 import cx from 'classnames';
 
@@ -127,7 +127,7 @@ class DataTable extends Component {
     let classname = cx(
       prefixCls, 
       className, 
-      {"table-row-alternate-color": alternateColor}
+      {"table-row-alternate-color": alternateColor},
     );
 
     // 默认宽度
@@ -207,12 +207,29 @@ class DataTable extends Component {
 /**
  * 操作区
  */
-let Oper = (prop) => (
+const Oper = (prop) => (
   <div className="table-row-button" onClick={e => e.stopPropagation()}>
     {prop.children}
   </div>
 );
 
+const Paging = ({dataItems, onFetchData}) => {
+  const { totalResult, showCount, currentPage } = dataItems;
+  const paging = {
+    total: totalResult,
+    pageSize: showCount,
+    current: currentPage,
+    showSizeChanger: true,
+    showQuickJumper: true,
+    showTotal: total => `共 ${total} 条`,
+    onShowSizeChange: (currentPage, showCount) => onFetchData({currentPage, showCount}),
+    onChange: (current) => onFetchData({currentPage}),
+
+  };
+  return <Pagination {...paging} />;
+};
+
 DataTable.Oper = Oper;
+DataTable.Pagination = Paging;
 
 export default DataTable;

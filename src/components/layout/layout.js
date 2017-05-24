@@ -79,18 +79,22 @@ class HeaderCmpt extends ExtendsCmpt {
   static propTypes = {
     border: PropTypes.string,
     justify: PropTypes.string,
-    align: PropTypes.string
+    align: PropTypes.string,
+    transparent: PropTypes.bool,
   };
 
   static defaultProps = {
     justify: 'start',
-    align: 'top'
+    align: 'top',
+    transparent: false
   };
   render() {
-    const { children, justify, align, border, style } = this.props;
+    const { children, justify, align, gutter, transparent, border, style } = this.props;
     const headerClass = classNames(this._getClassName('header'), {
       'antui-layout-header-top': border === 'top',
-      'antui-layout-header-bottom': border === 'bottom'
+      'antui-layout-header-bottom': border === 'bottom',
+      'antui-layout-gutter': gutter && !transparent,
+      'antui-layout-header-transparent': transparent,
     });
     return (
       <Header className={headerClass} style={style}>

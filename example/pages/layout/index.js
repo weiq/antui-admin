@@ -35,12 +35,12 @@ export default class LayoutDemo extends React.Component {
           <h4>Content：内容容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中</h4>
           <h4>Footer：底部容器，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中</h4>
         </nav>
-        <nav>
+        <nav className="layout-example">
           <h2>代码演示</h2>
           <h3>最简单的使用</h3>
           <code>
             <Layout>
-              <Header border="bottom" justify="space-between">
+              <Header border="bottom" justify="space-between" transparent>
                 <div style={{backgroundColor: 'yellow'}}>left</div>
                 <div style={{backgroundColor: 'red'}}>right</div>
               </Header>
@@ -95,7 +95,7 @@ export default class LayoutDemo extends React.Component {
             <Layout>
               <Header>Header</Header>
               <Layout>
-                <Sider collapsible={true} width={100}>Sider</Sider>
+                <Sider collapsible width={100}>Sider</Sider>
                 <Content>Content</Content>
               </Layout>
               <Footer>Footer</Footer>
@@ -107,7 +107,7 @@ export default class LayoutDemo extends React.Component {
             <Layout>
               <Header>Header</Header>
               <Layout>
-                <Sider collapsible={true} width={100}>Sider</Sider>
+                <Sider collapsible width={100}>Sider</Sider>
                 <Content>Content</Content>
               </Layout>
               <Footer>Footer</Footer>
