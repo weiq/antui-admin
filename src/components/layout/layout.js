@@ -67,10 +67,10 @@ class ExtendsCmpt extends Component {
   };
 
   _getClassName = (type) => {
-    return classNames({
+    return {
       [`antui-layout-${type}`]: true,
       'antui-layout-gutter': this.props.gutter
-    });
+    };
   }
 }
 
@@ -90,7 +90,9 @@ class HeaderCmpt extends ExtendsCmpt {
   };
   render() {
     const { children, justify, align, gutter, transparent, border, style } = this.props;
-    const headerClass = classNames(this._getClassName('header'), {
+
+    const headerClass = classNames({
+      ...this._getClassName('header'),
       'antui-layout-header-top': border === 'top',
       'antui-layout-header-bottom': border === 'bottom',
       'antui-layout-gutter': gutter && !transparent,
@@ -134,7 +136,7 @@ class SiderCmpt extends ExtendsCmpt {
   render() {
     const { children, gutter, ...others } = this.props;
     return (
-      <Sider className={this._getClassName('sider')} {...others} collapsedWidth={0} trigger={null} collapsed={this.state.collapsed}>
+      <Sider className={classNames(this._getClassName('sider'))} {...others} collapsedWidth={0} trigger={null} collapsed={this.state.collapsed}>
         {
           this.props.collapsible ? (
             <span className="antui-layout-sider-trigger" onClick={this.toggle}>
@@ -160,7 +162,7 @@ class ContentCmpt extends ExtendsCmpt {
   render() {
     const { children, padding, style } = this.props;
     return (
-      <Content className={this._getClassName('content')} style={{...style, padding: padding}}>{ children }</Content>
+      <Content className={classNames(this._getClassName('content'))} style={{...style, padding: padding}}>{ children }</Content>
     );
   }
 }

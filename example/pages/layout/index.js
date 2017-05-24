@@ -54,7 +54,7 @@ export default class LayoutDemo extends React.Component {
           <h3>layout间隔</h3>
           <code>
             <Layout gutter={8}>
-              <Header>Header</Header>
+              <Header transparent>Header</Header>
               <Layout>
                 <Sider>Sider</Sider>
                 <Content>Content</Content>
