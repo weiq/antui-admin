@@ -1,5 +1,5 @@
 import React from 'react';
-import { TreeTransfer } from '../../../src/index';
+import { TreeTransfer } from '../../../src';
 import Page from '../../component/page';
 const { AsyncTreeTransfer } = TreeTransfer;
 
