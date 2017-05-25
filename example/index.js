@@ -11,6 +11,7 @@ import Map from './pages/map';
 import Editor from './pages/editor';
 import Form from './pages/form';
 import Chart from './pages/chart';
+import Panel from './pages/panel';
 
 export default {
   Button,
@@ -26,4 +27,5 @@ export default {
   Editor,
   Form,
   Chart,
+  Panel
 };

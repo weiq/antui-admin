@@ -13,6 +13,7 @@ import Map from './components/map';
 import Editor from './components/editor';
 import Form from './components/form';
 import Chart from './components/chart';
+import Panel from './components/panel';
 
 export default {
   version,
@@ -29,4 +30,5 @@ export default {
   Editor,
   Form,
   Chart,
+  Panel
 };

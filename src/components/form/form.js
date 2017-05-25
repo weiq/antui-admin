@@ -63,11 +63,17 @@ class FormComp extends React.Component {
      * 是否是预览视图，所有表单项将展示为文本模式
      */
     preview: PropTypes.bool,
+    /** 是否是预览视图，所有表单项将展示为文本模式 */
+    formItemLayout: PropTypes.object,
   }
 
   static defaultProps = {
     prefixCls: "antui-form",
     type: "grid",
+    formItemLayout: {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 17 },
+    }
   }
 
   // 当type为grid时，指定每行元素个数
@@ -109,7 +115,7 @@ class FormComp extends React.Component {
   }
 
   render () {
-    const {className, prefixCls, type, rows, cols, 
+    const {className, prefixCls, type, rows, cols, formItemLayout: _formItemLayout,
       columns, record, group, children, form, preview, ...otherProps} = this.props;
 
     delete otherProps.onSubmit;
@@ -125,12 +131,7 @@ class FormComp extends React.Component {
     let ComponentRow = type === "inline" ? "section" : Row;
     let ComponentCol = type === "inline" ? "div" : Col;
     let ComponentItem = Form.Item;
-    const formItemLayout = type === "grid" ? {
-      labelCol: { span: 8 },
-      wrapperCol: { span: 16 },
-    } : {};
-
-    let ComponentBtnGroup = "div";
+    const formItemLayout = type === "grid" ? _formItemLayout : {};
 
     let formFields = columns.filter(col => col.formItem);
     formFields = group ? formFields.filter(col => col.formItem && col.formItem.group === group) : formFields;
@@ -258,7 +259,7 @@ class FormComp extends React.Component {
             })
           }
           {children}
-          <ComponentBtnGroup className="form-btns">
+          <ComponentCol className="form-btns col-item" {...colopts}>
             <Button 
               title="提交"
               type="primary"
@@ -270,7 +271,7 @@ class FormComp extends React.Component {
               onClick={e => this.onReset()}
               icon="reload"
             >重置</Button>
-          </ComponentBtnGroup>
+          </ComponentCol>
         </ComponentRow>
       </Form>
     );

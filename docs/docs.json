@@ -109,6 +109,13 @@
         "icon": "comment",
         "preview": "Chart",
         "component": "chart/chart"
+      },
+      {
+        "name": "Panel | 面板",
+        "version": "0.1.0",
+        "icon": "comment",
+        "preview": "Panel",
+        "component": "panel/panel"
       }
     ]
   },

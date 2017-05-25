@@ -9,9 +9,7 @@ const { Header, Sider, Content, Footer } = Layout;
 class LayoutCmpt extends Component {
   static __LAYOUT = true;
   static propTypes = {
-    /**
-     * 间隔距离
-     */
+    /** 间隔距离 */
     gutter: PropTypes.number,
   };
 
@@ -20,7 +18,7 @@ class LayoutCmpt extends Component {
   };
 
   render() {
-    const { gutter, embed, children } = this.props;
+    const { gutter, embed, children, className } = this.props;
     let _isDrawer = false;
     let _drawerProps = {};
     const nodes = Children.map(children, (node) => {
@@ -49,9 +47,9 @@ class LayoutCmpt extends Component {
     });
     const returnDOM = _isDrawer ? (
       <Drawer {..._drawerProps}>
-        <Layout className="antui-layout" style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>
+        <Layout className={`antui-layout ${className}`} style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>
       </Drawer>
-    ) : <Layout className="antui-layout" style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>;
+    ) : <Layout className={`antui-layout ${className}`} style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>;
 
     return returnDOM;
   }
@@ -80,6 +78,7 @@ class HeaderCmpt extends ExtendsCmpt {
     border: PropTypes.string,
     justify: PropTypes.string,
     align: PropTypes.string,
+    size: PropTypes.string,
     transparent: PropTypes.bool,
   };
 
@@ -89,7 +88,7 @@ class HeaderCmpt extends ExtendsCmpt {
     transparent: false
   };
   render() {
-    const { children, justify, align, gutter, transparent, border, style } = this.props;
+    const { children, justify, align, gutter, transparent, size, border, style } = this.props;
 
     const headerClass = classNames({
       ...this._getClassName('header'),
@@ -97,6 +96,7 @@ class HeaderCmpt extends ExtendsCmpt {
       'antui-layout-header-bottom': border === 'bottom',
       'antui-layout-gutter': gutter && !transparent,
       'antui-layout-header-transparent': transparent,
+      'antui-layout-header-small': size === 'small',
     });
     return (
       <Header className={headerClass} style={style}>
@@ -153,7 +153,10 @@ class SiderCmpt extends ExtendsCmpt {
 class ContentCmpt extends ExtendsCmpt {
   static __CONTENT = true;
   static propTypes = {
-    padding: PropTypes.number
+    padding: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ]),
   };
 
   static defaultProps = {
@@ -172,18 +175,21 @@ class FooterCmpt extends ExtendsCmpt {
   static propTypes = {
     border: PropTypes.string,
     justify: PropTypes.string,
-    align: PropTypes.string
+    align: PropTypes.string,
+    size: PropTypes.string,
   };
 
   static defaultProps = {
     justify: 'center',
-    align: 'top'
+    align: 'top',
   };
   render() {
-    const { children, justify, align, border, style } = this.props;
-    const footerClass = classNames(this._getClassName('footer'), {
+    const { children, justify, align, border, size, style } = this.props;
+    const footerClass = classNames({
+      ...this._getClassName('footer'),
       'antui-layout-footer-top': border === 'top',
-      'antui-layout-footer-bottom': border === 'bottom'
+      'antui-layout-footer-bottom': border === 'bottom',
+      'antui-layout-footer-small': size === 'small',
     });
     return (
       <Footer className={footerClass} style={style}>
