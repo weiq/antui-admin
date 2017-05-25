@@ -20,8 +20,8 @@ export default class Navpath extends Component {
 
   render() {
     const BreadcrumbItem = this.props.routes.map(({ name, path }) => (
-      <Breadcrumb.Item key={path}>
-        <Link to={path}>{ name }</Link>
+      <Breadcrumb.Item key={name}>
+        { path ? <Link to={path}>{ name }</Link> : <Link>{ name }</Link> }
       </Breadcrumb.Item>
     ));
 

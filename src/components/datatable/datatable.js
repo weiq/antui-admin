@@ -37,10 +37,7 @@ class DataTable extends Component {
     /**
      * 选择功能的配置 参考antd的rowSelection配置项
      */
-    rowSelection: PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string
-    ]), 
+    rowSelection: PropTypes.object,
     /**
      * 是否带滚动条
      */
@@ -59,7 +56,7 @@ class DataTable extends Component {
     /**
      * 外部获取数据接口 {currentPage:1, paramMap:{}, showCount:10}
      */
-    onFetchData: PropTypes.func,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -113,11 +110,11 @@ class DataTable extends Component {
     let sortMap = sorter.field ? {
       [sorter.field]: sorter.order === 'ascend' ? 'asc' : 'desc'
     } : null;
-    this.props.onFetchData({currentPage, sortMap});
+    this.props.onChange({currentPage, filters, sorter: sortMap});
   }
 
   onShowSizeChange = (currentPage, showCount) => {
-    this.props.onFetchData({currentPage, showCount});
+    this.props.onChange({currentPage, showCount});
   }
 
   render() {
@@ -213,7 +210,7 @@ const Oper = (prop) => (
   </div>
 );
 
-const Paging = ({dataItems, onFetchData}) => {
+const Paging = ({dataItems, onChange}) => {
   const { totalResult, showCount, currentPage } = dataItems;
   const paging = {
     total: totalResult,
@@ -222,8 +219,8 @@ const Paging = ({dataItems, onFetchData}) => {
     showSizeChanger: true,
     showQuickJumper: true,
     showTotal: total => `共 ${total} 条`,
-    onShowSizeChange: (currentPage, showCount) => onFetchData({currentPage, showCount}),
-    onChange: (current) => onFetchData({currentPage}),
+    onShowSizeChange: (currentPage, showCount) => onChange({currentPage, showCount}),
+    onChange: (currentPage) => onChange({currentPage}),
 
   };
   return <Pagination {...paging} />;
