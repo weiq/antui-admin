@@ -100,7 +100,7 @@ class ChartDemo extends React.Component {
           <code>
             <Chart option={barOption} style={{width: '100%', height: 300}} />
           </code>
-          <h3>1. 事件监听事例</h3>
+          <h3>2. 事件监听事例</h3>
           <code>
             <Chart option={pieOption} style={{width: '100%', height: 300}} onEvents={onEvents} />
           </code>

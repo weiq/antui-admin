@@ -22,7 +22,8 @@
         "name": "Layout | 布局",
         "icon": "th-large",
         "preview": "Layout",
-        "component": "layout/layout"
+        "component": "layout/layout",
+        "guide": "layout.zh-CN.md"
       },
       {
         "name": "Panel | 面板",
