@@ -3,7 +3,7 @@ import Layout from '../layout';
 import Icon from '../icon';
 const { Header, Content, Footer } = Layout;
 /**
- *  简单的提示气泡框。
+ *  面板组件
  */
 export default class Panel extends Component {
   static propTypes = {
