@@ -25,11 +25,15 @@ class PanelDemo extends React.Component {
           <code style={{width: 200, height: 300}}>
             <Panel title="最简单的使用" footer={<Button type="primary">确定</Button>} />
           </code>
-          <h3>1. 与form，layout.drawer 搭配使用</h3>
+          <h3>2. 没有footer</h3>
+          <code style={{width: 200, height: 300}}>
+            <Panel title="没有footer" footer={null} />
+          </code>
+          <h3>3. 与form，layout.drawer 搭配使用</h3>
           <code style={{height: 400}}>
             <a onClick={this.handleVisiable}>打开/关闭抽屉</a>
             <Layout>
-              <Drawer visible={this.state.visible}>
+              <Drawer visible={this.state.visible} width={300}>
                 <Panel title="新增用户" closable onClosed={() => { this.setState({visible: false}) }}>
                   <Form columns={columns} />
                 </Panel>

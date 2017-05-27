@@ -15,7 +15,7 @@ class Start extends Component {
     return (
       <div className="start">
         <div className="start-banner" ref="container">
-          <h2>AntUI Admin</h2>
+          <h2>antui-admin</h2>
           <p className="desc">{lang.bannerHeading}</p>
         </div>
         <div className="start-box-announcement">
@@ -48,7 +48,7 @@ class Start extends Component {
           </div>
         </div>
         <div className="start-box-footer">
-          <p>Inspired by <a href="https://ant.design/">ANT DESIGN</a></p>
+          <p>Inspired by <a href="http://www.isphere.top/">isphere</a></p>
         </div>
       </div>
     );

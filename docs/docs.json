@@ -20,28 +20,48 @@
     "items": [
       {
         "name": "Layout | 布局",
-        "version": "0.1.0",
         "icon": "th-large",
         "preview": "Layout",
         "component": "layout/layout"
       },
       {
+        "name": "Panel | 面板",
+        "icon": "columns",
+        "preview": "Panel",
+        "component": "panel/panel"
+      },
+      {
+        "name": "DataTable | 数据表格",
+        "icon": "table",
+        "preview": "DataTable",
+        "component": "datatable/datatable"
+      },
+      {
+        "name": "SearchBar | 搜索组件",
+        "icon": "search",
+        "preview": "SearchBar",
+        "component": "searchbar/searchbar"
+      },
+      {
+        "name": "Form | 表单",
+        "icon": "wpforms",
+        "preview": "Form",
+        "component": "form/form"
+      },
+      {
         "name": "Button | 按钮",
-        "version": "0.1.0",
         "icon": "dot-circle-o",
         "preview": "Button",
         "component": "button/button"
       },
       {
         "name": "Navpath | 导航栏",
-        "version": "0.1.0",
         "icon": "map-signs",
         "preview": "Navpath",
         "component": "navpath/navpath"
       },
       {
         "name": "Tooltip | 气泡提示",
-        "version": "0.1.0",
         "icon": "comment",
         "preview": "Tooltip",
         "component": "tooltip/tooltip",
@@ -49,73 +69,39 @@
       },
       {
         "name": "Icon | 图标",
-        "version": "0.1.0",
-        "icon": "info-circle",
+        "icon": "font",
         "preview": "Icon",
         "component": "icon/icon"
       },
       {
-        "name": "DataTable | 数据表格",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "DataTable",
-        "component": "datatable/datatable"
-      },
-      {
         "name": "Message | 全局提示",
-        "version": "0.1.0",
-        "icon": "comment",
+        "icon": "bell",
         "preview": "Message",
         "component": "message/message"
       },
       {
-        "name": "SearchBar | 搜索组件",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "SearchBar",
-        "component": "searchbar/searchbar"
-      },
-      {
-        "name": "Form | 表单",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "Form",
-        "component": "form/form"
-      },
-      {
         "name": "Map | 地图",
-        "version": "0.1.0",
-        "icon": "comment",
+        "icon": "map",
         "preview": "Map",
         "component": "map/map"
       },
       {
         "name": "Editor | 编辑器",
-        "version": "0.1.0",
-        "icon": "comment",
+        "icon": "pencil-square-o",
         "preview": "Editor",
         "component": "editor/editor"
       },
       {
         "name": "TreeTransfer | 树穿梭框",
-        "version": "0.1.0",
-        "icon": "comment",
+        "icon": "tree",
         "preview": "TreeTransfer",
         "component": "treetransfer/treetransfer"
       },
       {
         "name": "Chart | 图形组件",
-        "version": "0.1.0",
-        "icon": "comment",
+        "icon": "pie-chart",
         "preview": "Chart",
         "component": "chart/chart"
-      },
-      {
-        "name": "Panel | 面板",
-        "version": "0.1.0",
-        "icon": "comment",
-        "preview": "Panel",
-        "component": "panel/panel"
       }
     ]
   },
@@ -133,7 +119,7 @@
           "en-US": "Get Started",
           "zh-CN": "开始使用"
         },
-        "icon": "gear",
+        "icon": "share-alt",
         "guide": {
           "en-US": "getstarted.en-US.md",
           "zh-CN": "getstarted.zh-CN.md"
@@ -141,10 +127,30 @@
       },
       {
         "name": {
+          "en-US": "Use lucio",
+          "zh-CN": "lucio 用法"
+        },
+        "icon": "share-alt",
+        "guide": {
+          "zh-CN": "lucio.zh-CN.md"
+        }
+      },
+      {
+        "name": {
+          "en-US": "Use Sinopia",
+          "zh-CN": "公司级npm用法"
+        },
+        "icon": "share-alt",
+        "guide": {
+          "zh-CN": "sinopia.zh-CN.md"
+        }
+      },
+      {
+        "name": {
           "en-US": "Use Column",
           "zh-CN": "column.js 用法"
         },
-        "icon": "gear",
+        "icon": "share-alt",
         "guide": {
           "zh-CN": "column.zh-CN.md"
         }

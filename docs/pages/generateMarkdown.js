@@ -16,7 +16,7 @@ function stringOfLength(string, length) {
 }
 
 function generateTitle(name, version) {
-  let title = '`' + name + '` ![' + name + '](https://img.shields.io/badge/antui--admin-' + version + '-brightgreen.svg)';
+  let title = '`' + name + '`';
   return title + '\n' + stringOfLength('=', title.length) + '\n';
 }
 
