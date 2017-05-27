@@ -15,7 +15,7 @@ class Start extends Component {
     return (
       <div className="start">
         <div className="start-banner" ref="container">
-          <h2>antui-admin</h2>
+          <h2>Antui-Admin</h2>
           <p className="desc">{lang.bannerHeading}</p>
         </div>
         <div className="start-box-announcement">
