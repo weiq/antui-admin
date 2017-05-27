@@ -1,3 +1,5 @@
+@antui-tooltip-padding: 2px;
+
 .antui-tooltip {
   .ant-popover-arrow {
     display: none;
@@ -5,5 +7,33 @@
   .ant-popover-content {
     word-wrap: break-word;
     max-width: 200px;
+    .ant-popover-inner {
+    	.ant-popover-inner-content {
+    		padding: 4px 8px;
+    	}
+    }
+  }
+  &.ant-popover-placement-top, 
+  &.ant-popover-placement-topLeft,
+  &.antui-tooltip.ant-popover-placement-topRight {
+	padding-bottom: @antui-tooltip-padding;
+  }
+
+  &.ant-popover-placement-bottom, 
+  &.ant-popover-placement-bottomLeft,
+  &.antui-tooltip.ant-popover-placement-bottomRight {
+	padding-top: @antui-tooltip-padding;
+  }
+
+  &.ant-popover-placement-left,
+  &.ant-popover-placement-leftTop,
+  &.ant-popover-placement-leftBottom {
+  	padding-right: @antui-tooltip-padding;
+  }
+
+  &.ant-popover-placement-right,
+  &.ant-popover-placement-rightTop,
+  &.ant-popover-placement-rightBottom {
+  	padding-left: @antui-tooltip-padding;
   }
 }
