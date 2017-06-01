@@ -31,12 +31,6 @@ class DrawerCmpt extends Component {
     });
   }
 
-  handleOpen = () => {
-    this.setState({
-      visible: !this.state.visible
-    });
-  }
-
   render() {
     const { drawerBody, placement, width, children } = this.props;
     const sidebarStyle = placement === 'top' || placement === 'bottom' ? {height: width} : {width: width};
@@ -53,6 +47,9 @@ class DrawerCmpt extends Component {
       enableDragHandle: false,
       position: placement,
       dragToggleDistance: 30,
+      onOpenChange: (visible) => {
+        this.setState({ visible });
+      }
     };
 
     return (

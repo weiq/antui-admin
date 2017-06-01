@@ -19,7 +19,7 @@ export default class LayoutDemo extends React.Component {
       visible_1: false,
       visible_2: false,
       visible_3: false,
-      [`visible_${id}`]: !this.state[`visible_${id}`]
+      [`visible_${id}`]: true
     });
   }
 
