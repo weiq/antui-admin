@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chart } from '../../../src/index';
+import { Chart } from '../../../src';
 import Page from '../../component/page';
 // chart import demand
 import 'echarts/lib/chart/bar';

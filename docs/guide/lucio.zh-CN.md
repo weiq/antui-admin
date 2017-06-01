@@ -19,7 +19,7 @@ $ npm start
 
 # 使用代码生成器
 $ cd pkgname
-$ lucio template --curd       // 测试阶段 有待完善
+$ lucio template --curd
 ```
 
 ## 命令
