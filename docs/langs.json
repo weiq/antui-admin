@@ -70,7 +70,7 @@
         "srcCode": "源码",
         "loading": "读取中...",
         "guide": "教程",
-        "noprop": "没有属性",
+        "noprop": "",
         "props": "组件属性",
         "name": "名称",
         "type": "类型",

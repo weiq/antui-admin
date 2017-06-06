@@ -13,6 +13,13 @@ import Form from './pages/form';
 import Chart from './pages/chart';
 import Panel from './pages/panel';
 import TimeLine from './pages/timeline';
+import Card from './pages/card';
+import Collapse from './pages/collapse';
+import Tabs from './pages/tabs';
+import Popconfirm from './pages/popconfirm';
+import Tag from './pages/tag';
+import Tree from './pages/tree';
+import Upload from './pages/upload';
 
 export default {
   Button,
@@ -30,4 +37,11 @@ export default {
   Chart,
   Panel,
   TimeLine,
+  Card,
+  Collapse,
+  Tabs,
+  Popconfirm,
+  Tag,
+  Tree,
+  Upload,
 };

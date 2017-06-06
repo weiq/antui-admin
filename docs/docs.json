@@ -70,7 +70,7 @@
       },
       {
         "name": "Icon | 图标",
-        "icon": "font",
+        "icon": "font-awesome",
         "preview": "Icon",
         "component": "icon/icon"
       },
@@ -109,6 +109,48 @@
         "icon": "clock-o",
         "preview": "TimeLine",
         "component": "timeline/timeline"
+      },
+      {
+        "name": "Tag | 标签",
+        "icon": "font",
+        "preview": "Tag",
+        "component": "tag/tag"
+      },
+      {
+        "name": "Upload | 上传",
+        "icon": "font",
+        "preview": "Upload",
+        "component": "upload/upload"
+      },
+      {
+        "name": "Tabs | 标签页",
+        "icon": "font",
+        "preview": "Tabs",
+        "component": "tabs/tabs"
+      },
+      {
+        "name": "Card | 卡片",
+        "icon": "font",
+        "preview": "Card",
+        "component": "card/card"
+      },
+      {
+        "name": "Collapse | 折叠面板",
+        "icon": "font",
+        "preview": "Collapse",
+        "component": "collapse/collapse"
+      },
+      {
+        "name": "Tree | 树形控件",
+        "icon": "font",
+        "preview": "Tree",
+        "component": "tree/tree"
+      },
+      {
+        "name": "Popconfirm | 气泡确认框",
+        "icon": "font",
+        "preview": "Popconfirm",
+        "component": "popconfirm/popconfirm"
       }
     ]
   },

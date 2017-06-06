@@ -59,7 +59,7 @@ class Navigation extends Component {
             {
               menus.map((item, i) => {
                 if (!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1) {
-                  return ( 
+                  return (
                     <Menu.Item key={"menu" + i}>
                       <Link to={`/docs/${this.props.current.id}/articles/${i}`}>
                         <div className="menu-item">

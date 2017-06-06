@@ -8,7 +8,7 @@ class TimeLine extends React.Component {
   static propTypes = {
     /** 数据数组 */
     dataSource: PropTypes.array.isRequired,
-    /** 最后一个幽灵节点的内容 */
+    /** 最后一个时间节点的内容 */
     pending: PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.element

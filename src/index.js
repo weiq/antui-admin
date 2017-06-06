@@ -15,6 +15,14 @@ import Form from './components/form';
 import Chart from './components/chart';
 import Panel from './components/panel';
 import TimeLine from './components/timeline';
+// antd
+import Card from './components/card';
+import Collapse from './components/collapse';
+import Tabs from './components/Tabs';
+import Popconfirm from './components/popconfirm';
+import Tag from './components/tag';
+import Tree from './components/tree';
+import Upload from './components/upload';
 
 export default {
   version,
@@ -33,4 +41,11 @@ export default {
   Chart,
   Panel,
   TimeLine,
+  Card,
+  Collapse,
+  Tabs,
+  Popconfirm,
+  Tag,
+  Tree,
+  Upload,
 };
