@@ -1,0 +1,119 @@
+.antui-timeline {
+	.ant-timeline-item {
+		min-height: 72px;
+		.ant-timeline-item-tail {
+			left: 4px;
+			top: 5px;
+		}
+		.ant-timeline-item-head-custom {
+			margin-top: 24px;
+			.antui-timeline-stat {
+			    float: left;
+			    text-align: center;
+			    .antui-timeline-stat-icon {
+			    	font-size: 24px;
+			    }
+			    .antui-timeline-stat-time {
+		    	    display: inline-block;
+				    padding: 6px 2px;
+				    color: #c9c9c9;
+				    font-size: 12px;
+				    max-width: 40px;
+			    }
+			    .antui-timeline-stat-circle {
+			    	position: relative;
+				    width: 12px;
+				    height: 12px;
+				    left: 13px;
+				    background-color: #fff;
+				    border-radius: 100px;
+				    border: 2px solid transparent;
+			    }
+			}
+		}
+		.ant-timeline-item-content {
+			padding-left: 32px;
+			top: 0px;
+			.ant-card {
+				border-radius: 4px;
+				background-color: transparent;
+				.ant-card-body {
+					padding: 0 12px 0 0;
+					.antui-content-title {
+						font-size: 14px;
+					    display: inline-block;
+					    text-overflow: ellipsis;
+					    width: 100%;
+					    overflow: hidden;
+					    white-space: nowrap;
+					    color: rgba(0,0,0,.85);
+					    font-weight: 500;
+					}
+					.antui-content-message-notitle {
+						margin: 4px 0;
+					}
+				}
+				&:hover {
+				    box-shadow: 0 0 0 rgba(0,0,0,.2);
+                    border-color: transparent;
+				}
+			}
+			.ant-card-bordered {
+				background-color: #fff;
+				.ant-card-body {
+					padding: 8px 12px;
+				}
+				&:hover {
+				    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+                    border-color: transparent;
+				}
+			}
+		}
+	}
+	.ant-timeline-item-pending {
+		.ant-timeline-item-head {
+			border-color: #758697;
+            color: #e9e9e9;
+            top: 4px;
+		}
+		.ant-timeline-item-content {
+			padding-left: 32px;
+			top: 1px;
+		}
+	}
+}
+
+
+.antui-timeline.antui-timeline-left {
+	.ant-timeline-item {
+		.ant-timeline-item-tail {
+			top: 15px;
+		}
+		.ant-timeline-item-head-custom {
+			.antui-timeline-stat {
+				.antui-timeline-stat-icon {
+			    	position: relative;
+				    left: 7px;
+			    }
+			}
+		}
+		.ant-timeline-item-content {
+			top: 15px;
+			.antui-item-time {
+			    display: inline-block;
+			    text-overflow: ellipsis;
+			    width: 100%;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    font-weight: 500;
+			    color: #c9c9c9;
+			    -webkit-font-smoothing: antialiased;
+			}
+		}
+	}
+	.ant-timeline-item-pending {
+		.ant-timeline-item-content {
+			top: 2px;
+		}
+	}
+}

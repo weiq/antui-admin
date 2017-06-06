@@ -103,6 +103,12 @@
         "icon": "pie-chart",
         "preview": "Chart",
         "component": "chart/chart"
+      },
+      {
+        "name": "TimeLine | 时间轴",
+        "icon": "clock-o",
+        "preview": "TimeLine",
+        "component": "timeline/timeline"
       }
     ]
   },

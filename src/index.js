@@ -14,6 +14,7 @@ import Editor from './components/editor';
 import Form from './components/form';
 import Chart from './components/chart';
 import Panel from './components/panel';
+import TimeLine from './components/timeline';
 
 export default {
   version,
@@ -30,5 +31,6 @@ export default {
   Editor,
   Form,
   Chart,
-  Panel
+  Panel,
+  TimeLine,
 };

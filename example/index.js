@@ -12,6 +12,7 @@ import Editor from './pages/editor';
 import Form from './pages/form';
 import Chart from './pages/chart';
 import Panel from './pages/panel';
+import TimeLine from './pages/timeline';
 
 export default {
   Button,
@@ -27,5 +28,6 @@ export default {
   Editor,
   Form,
   Chart,
-  Panel
+  Panel,
+  TimeLine,
 };
