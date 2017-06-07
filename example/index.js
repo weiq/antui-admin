@@ -20,12 +20,14 @@ import Popconfirm from './pages/popconfirm';
 import Tag from './pages/tag';
 import Tree from './pages/tree';
 import Upload from './pages/upload';
+import ImageLoader from './pages/imageloader';
 
 export default {
   Button,
   Navpath,
   Tooltip,
   Icon,
+  ImageLoader,
   DataTable,
   Layout,
   Message,

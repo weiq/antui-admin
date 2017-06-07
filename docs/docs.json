@@ -75,6 +75,12 @@
         "component": "icon/icon"
       },
       {
+        "name": "ImageLoader | Lazy图片",
+        "icon": "image",
+        "preview": "ImageLoader",
+        "component": "imageloader/imageloader"
+      },
+      {
         "name": "Message | 全局提示",
         "icon": "bell",
         "preview": "Message",

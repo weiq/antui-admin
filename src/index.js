@@ -15,6 +15,7 @@ import Form from './components/form';
 import Chart from './components/chart';
 import Panel from './components/panel';
 import TimeLine from './components/timeline';
+import ImageLoader from './components/imageloader';
 // antd
 import Card from './components/card';
 import Collapse from './components/collapse';
@@ -30,6 +31,7 @@ export default {
   Navpath,
   Tooltip,
   Icon,
+  ImageLoader,
   DataTable,
   Layout,
   Message,
