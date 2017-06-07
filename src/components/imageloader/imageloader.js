@@ -68,7 +68,7 @@ const Image = (options = {}) => {
       );
     }
   });
-}
+};
 
 ImageLoader.Image = Image;
 
