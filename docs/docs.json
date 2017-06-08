@@ -81,12 +81,6 @@
         "component": "imageloader/imageloader"
       },
       {
-        "name": "Message | 全局提示",
-        "icon": "bell",
-        "preview": "Message",
-        "component": "message/message"
-      },
-      {
         "name": "Map | 地图",
         "icon": "map",
         "preview": "Map",
@@ -145,6 +139,24 @@
         "icon": "font",
         "preview": "Collapse",
         "component": "collapse/collapse"
+      },
+      {
+        "name": "Modal | 对话框",
+        "icon": "font",
+        "preview": "Modal",
+        "component": "modal/modal"
+      },
+      {
+        "name": "message | 全局提示",
+        "icon": "font",
+        "preview": "message",
+        "component": "message/message"
+      },
+      {
+        "name": "notification | 通知提醒框",
+        "icon": "font",
+        "preview": "notification",
+        "component": "notification/notification"
       },
       {
         "name": "Tree | 树形控件",
