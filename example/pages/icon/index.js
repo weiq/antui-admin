@@ -42,9 +42,9 @@ export default class IconDemo extends React.Component {
 };
 
 const iconlist = [
-  'loading', 'goods', 'refund', 'popupmsg', 'car', 'pay', 'wrap', 'rmb', 'card', 'list', 'vipcard', 
-  'search', 'location', 'pulldown', 'order', 'mine-o', 'mine', 'shopping-cart-o', 'shopping-cart', 
-  'shopping-cart-a', 'password', 'caret-right', 'caret-left', 'caret-down', 'caret-top', 'pixel-right', 
+  'loading', 'rmb', 'card', 'list',
+  'search', 'location', 'pulldown', 'mine-o', 'mine', 'shopping-cart-o', 'shopping-cart', 
+  'shopping-cart-a', 'password', 'caret-right', 'caret-left', 'caret-down', 'caret-top',
   'check', 'cross', 'right', 'left', 'top', 'bottom', 'arrow-top', 'arrow-bottom', 'add', 'minus', 
   'info-circle-o', 'info-circle', 'warning-o', 'warning', 'cross-circle-o', 'cross-circle', 'check-circle-o', 
   'check-circle', 'delete', 'back', 'upload', 'download', 'up-circle', 'down-circle'
