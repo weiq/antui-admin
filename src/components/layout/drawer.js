@@ -10,6 +10,7 @@ class DrawerCmpt extends Component {
     width: PropTypes.number,
     drawerBody: PropTypes.node,
     placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+    onClosed: PropTypes.func
   };
 
   static defaultProps = {
@@ -32,7 +33,7 @@ class DrawerCmpt extends Component {
   }
 
   render() {
-    const { drawerBody, placement, width, children } = this.props;
+    const { drawerBody, placement, width, onClosed, children } = this.props;
     const sidebarStyle = placement === 'top' || placement === 'bottom' ? {height: width} : {width: width};
     
     const _sidebar = (
@@ -48,7 +49,11 @@ class DrawerCmpt extends Component {
       position: placement,
       dragToggleDistance: 30,
       onOpenChange: (visible) => {
-        this.setState({ visible });
+        if (onClosed) {
+          onClosed();
+        } else {
+          this.setState({ visible });
+        }
       }
     };
 

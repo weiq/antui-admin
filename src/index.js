@@ -6,7 +6,6 @@ import Tooltip from './components/tooltip';
 import Icon from './components/icon';
 import DataTable from './components/datatable';
 import Layout from './components/layout';
-import Message from './components/message';
 import SearchBar from './components/searchbar';
 import TreeTransfer from './components/treetransfer';
 import Map from './components/map';
@@ -24,6 +23,9 @@ import Popconfirm from './components/popconfirm';
 import Tag from './components/tag';
 import Tree from './components/tree';
 import Upload from './components/upload';
+import Modal from './components/modal';
+import notification from './components/notification';
+import message from './components/message';
 
 export default {
   version,
@@ -34,7 +36,6 @@ export default {
   ImageLoader,
   DataTable,
   Layout,
-  Message,
   SearchBar,
   TreeTransfer,
   Map,
@@ -50,4 +51,7 @@ export default {
   Tag,
   Tree,
   Upload,
+  Modal,
+  notification,
+  message
 };
