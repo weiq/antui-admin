@@ -18,7 +18,7 @@ import ImageLoader from './components/imageloader';
 // antd
 import Card from './components/card';
 import Collapse from './components/collapse';
-import Tabs from './components/Tabs';
+import Tabs from './components/tabs';
 import Popconfirm from './components/popconfirm';
 import Tag from './components/tag';
 import Tree from './components/tree';
