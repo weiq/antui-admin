@@ -26,6 +26,7 @@ import Upload from './components/upload';
 import Modal from './components/modal';
 import notification from './components/notification';
 import message from './components/message';
+import Menu from './components/menu';
 
 export default {
   version,
@@ -53,5 +54,6 @@ export default {
   Upload,
   Modal,
   notification,
-  message
+  message,
+  Menu,
 };

@@ -1,4 +1,4 @@
-for name in notification
+for name in menu
 do
 	path=$(cd "$(dirname "$0")";pwd)
     cd src/components

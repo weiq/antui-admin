@@ -1,6 +1,6 @@
 {
   "name": "antui-admin",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "description": "admin ui for antd",
   "main": "./lib",
   "scripts": {
@@ -18,8 +18,7 @@
     "test:watch": "npm run test -- --watch",
     "coverage": "npm run lint & nyc --require babel-core/register mocha -r ignore-styles -r jsdom-global/register && nyc report --reporter=lcov",
     "c9start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host $IP --port $PORT",
-    "prepublish": "npm --registry https://registry.npmjs.org run build",
-    "postpublish": "npm --registry https://registry.npm.taobao.org info antui-admin && npm run clean"
+    "publish:lib": "npm run build && npm --registry https://registry.npmjs.org publish && npm run clean"
   },
   "repository": {
     "type": "git",
