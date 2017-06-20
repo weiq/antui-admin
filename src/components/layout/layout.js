@@ -83,8 +83,6 @@ class HeaderCmpt extends ExtendsCmpt {
   };
 
   static defaultProps = {
-    justify: 'start',
-    align: 'top',
     transparent: false
   };
   render() {
@@ -100,7 +98,13 @@ class HeaderCmpt extends ExtendsCmpt {
     });
     return (
       <Header className={headerClass} style={style}>
-        <Row type="flex" justify={justify} align={align}>{ children }</Row>
+        {
+          justify || align ? (
+            <Row type="flex" justify={justify} align={align}>{ children }</Row>
+          ) : (
+            <Row>{ children }</Row>
+          )
+        }
       </Header>
     );
   }
@@ -178,11 +182,7 @@ class FooterCmpt extends ExtendsCmpt {
     align: PropTypes.string,
     size: PropTypes.string,
   };
-
-  static defaultProps = {
-    justify: 'center',
-    align: 'top',
-  };
+  
   render() {
     const { children, justify, align, border, size, style } = this.props;
     const footerClass = classNames({
@@ -193,7 +193,11 @@ class FooterCmpt extends ExtendsCmpt {
     });
     return (
       <Footer className={footerClass} style={style}>
-        <Row type="flex" justify={justify} align={align}>{ children }</Row>
+        justify || align ? (
+          <Row type="flex" justify={justify} align={align}>{ children }</Row>
+        ) : (
+          <Row>{ children }</Row>
+        )
       </Footer>
     );
   }
