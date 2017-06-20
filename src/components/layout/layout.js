@@ -86,9 +86,9 @@ class HeaderCmpt extends ExtendsCmpt {
     transparent: false
   };
   render() {
-    const { children, justify, align, gutter, transparent, size, border, style } = this.props;
+    const { children, justify, align, gutter, transparent, size, border, style, className } = this.props;
 
-    const headerClass = classNames({
+    const headerClass = classNames(className, {
       ...this._getClassName('header'),
       'antui-layout-header-top': border === 'top',
       'antui-layout-header-bottom': border === 'bottom',
@@ -138,9 +138,9 @@ class SiderCmpt extends ExtendsCmpt {
   };
 
   render() {
-    const { children, gutter, ...others } = this.props;
+    const { children, gutter, className, ...others } = this.props;
     return (
-      <Sider className={classNames(this._getClassName('sider'))} {...others} collapsedWidth={0} trigger={null} collapsed={this.state.collapsed}>
+      <Sider className={classNames(className, this._getClassName('sider'))} {...others} collapsedWidth={0} trigger={null} collapsed={this.state.collapsed}>
         {
           this.props.collapsible ? (
             <span className="antui-layout-sider-trigger" onClick={this.toggle}>
@@ -167,9 +167,9 @@ class ContentCmpt extends ExtendsCmpt {
     padding: 0
   };
   render() {
-    const { children, padding, style } = this.props;
+    const { children, padding, style, className } = this.props;
     return (
-      <Content className={classNames(this._getClassName('content'))} style={{...style, padding: padding}}>{ children }</Content>
+      <Content className={classNames(className, this._getClassName('content'))} style={{...style, padding: padding}}>{ children }</Content>
     );
   }
 }
@@ -184,8 +184,8 @@ class FooterCmpt extends ExtendsCmpt {
   };
   
   render() {
-    const { children, justify, align, border, size, style } = this.props;
-    const footerClass = classNames({
+    const { children, justify, align, border, size, style, className } = this.props;
+    const footerClass = classNames(className, {
       ...this._getClassName('footer'),
       'antui-layout-footer-top': border === 'top',
       'antui-layout-footer-bottom': border === 'bottom',
