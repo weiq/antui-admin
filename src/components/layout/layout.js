@@ -193,11 +193,11 @@ class FooterCmpt extends ExtendsCmpt {
     });
     return (
       <Footer className={footerClass} style={style}>
-        justify || align ? (
+        {justify || align ? (
           <Row type="flex" justify={justify} align={align}>{ children }</Row>
         ) : (
           <Row>{ children }</Row>
-        )
+        )}
       </Footer>
     );
   }

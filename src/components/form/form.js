@@ -63,13 +63,20 @@ class FormComp extends React.Component {
      * 是否是预览视图，所有表单项将展示为文本模式
      */
     preview: PropTypes.bool,
+
     /** 是否是预览视图，所有表单项将展示为文本模式 */
     formItemLayout: PropTypes.object,
+
+    /**
+     * 是否是提交中状态
+     */
+    loading: PropTypes.bool,
   }
 
   static defaultProps = {
     prefixCls: "antui-form",
     type: "grid",
+    loading: false,
     formItemLayout: {
       labelCol: { span: 6 },
       wrapperCol: { span: 17 },
@@ -116,7 +123,7 @@ class FormComp extends React.Component {
 
   render () {
     const {className, prefixCls, type, rows, cols, formItemLayout: _formItemLayout,
-      columns, record, group, children, form, preview, ...otherProps} = this.props;
+      columns, record, group, children, form, preview, loading, ...otherProps} = this.props;
 
     delete otherProps.onSubmit;
 
@@ -265,6 +272,7 @@ class FormComp extends React.Component {
               type="primary"
               htmlType="submit"
               icon="check"
+              loading={loading}
             >提交</Button>
             <Button 
               title="重置"

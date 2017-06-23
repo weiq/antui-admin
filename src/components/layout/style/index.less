@@ -27,6 +27,9 @@
 	}
 	.antui-layout-footer {
 		min-height: 45px;
+    .ant-pagination{
+      text-align: center;
+    }
 	}
 	.antui-layout-footer-bottom {
 		border-bottom: 1px solid #e9e9e9;
@@ -76,8 +79,11 @@
 .antui-layout-drawer {
 	height: 100%;
 	.rc-drawer {
-		position: relative;
-		height: 100%;
+		position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 		.rc-drawer-content {
 			height: 100%;
 			position: relative;
@@ -89,4 +95,14 @@
 			}
 		}
 	}
+  &.fixed {
+    .rc-drawer {
+      > .rc-drawer-sidebar,
+      > .rc-drawer-overlay{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
 }
