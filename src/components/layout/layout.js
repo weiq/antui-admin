@@ -11,14 +11,22 @@ class LayoutCmpt extends Component {
   static propTypes = {
     /** 间隔距离 */
     gutter: PropTypes.number,
+    /**
+     * 是否全屏宽高, 设置为false为传统流式布局
+     */
+    full: PropTypes.bool,
+    className: PropTypes.string,
+    children: PropTypes.node,
+    embed: PropTypes.bool,
   };
 
   static defaultProps = {
     gutter: 0,
+    full: true,
   };
 
   render() {
-    const { gutter, embed, children, className } = this.props;
+    const { gutter, embed, children, className, full } = this.props;
     let _isDrawer = false;
     let _drawerProps = {};
     const nodes = Children.map(children, (node) => {
@@ -47,9 +55,21 @@ class LayoutCmpt extends Component {
     });
     const returnDOM = _isDrawer ? (
       <Drawer {..._drawerProps}>
-        <Layout className={`antui-layout ${className}`} style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>
+        <Layout 
+          className={classNames("antui-layout", {
+            [className]: !!className, 
+            full
+          })} 
+          style={{padding: embed ? 0 : gutter}}
+        >{ nodes }</Layout>
       </Drawer>
-    ) : <Layout className={`antui-layout ${className}`} style={{padding: embed ? 0 : gutter}}>{ nodes }</Layout>;
+    ) : <Layout 
+      className={classNames("antui-layout", {
+        [className]: !!className, 
+        full
+      })} 
+      style={{padding: embed ? 0 : gutter}}
+    >{ nodes }</Layout>;
 
     return returnDOM;
   }

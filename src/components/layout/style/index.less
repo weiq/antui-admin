@@ -1,6 +1,12 @@
 .antui-layout {
-	height: 100%;
 	background-color: #d9d9d9;
+  &.full {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 	.antui-layout-header.ant-layout-header, .antui-layout-footer.ant-layout-footer, .antui-layout-sider.ant-layout-sider, .antui-layout-content.ant-layout-content {
 	    background: white;
 	}
@@ -23,7 +29,7 @@
 	}
 	.antui-layout-header-small {
 		height: 40px !important;
-        line-height: 40px !important;
+    line-height: 40px !important;
 	}
 	.antui-layout-footer {
 		min-height: 45px;
@@ -46,7 +52,8 @@
 	}
 	.antui-layout-content.ant-layout-content {
     position: relative;
-		height: 100%;
+    overflow: auto;
+    height: 100%;
 	}
 	.antui-layout-gutter {
 		border-radius: 4px;
