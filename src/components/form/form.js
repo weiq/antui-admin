@@ -286,4 +286,6 @@ class FormComp extends React.Component {
   }
 }
 
+export const Item = Form.item;
+
 export default createForm()(FormComp);
