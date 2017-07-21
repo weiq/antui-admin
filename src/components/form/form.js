@@ -169,6 +169,7 @@ class FormComp extends React.Component {
                           form: form,
                           type: field.formItem.type,
                           style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
+                          format: field.formItem.format,
                           ...otherField
                         })}
                       </ComponentItem>

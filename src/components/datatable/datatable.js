@@ -39,6 +39,10 @@ class DataTable extends Component {
      */
     rowSelection: PropTypes.object,
     /**
+     * 指定选中项的 key 数组
+     */
+    selectedRowKeys: PropTypes.array,
+    /**
      * 是否带滚动条
      */
     isScroll: PropTypes.bool,
@@ -68,10 +72,29 @@ class DataTable extends Component {
     super(props);
     
     this.state = {
-      selectedRowKeys: [],
+      selectedRowKeys: this.getSelectedRowKeys(props),
       selectedRows: [],
       tableHeight: null,
     };
+  }
+
+  getSelectedRowKeys(props) {
+    let selectedRowKeys = [];
+    if ('selectedRowKeys' in props) {
+      selectedRowKeys = props.selectedRowKeys;
+    }
+    return selectedRowKeys;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const selectedRowKeys = this.getSelectedRowKeys(nextProps);
+    const st = {};
+
+    if (selectedRowKeys) {
+      st.selectedRowKeys = selectedRowKeys;
+    }
+
+    if (Object.keys(st).length) this.setState(st);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -210,7 +233,7 @@ const Oper = (prop) => (
   </div>
 );
 
-const Paging = ({dataItems, onChange, pageSizeOptions}) => {
+const Paging = ({dataItems, onChange, ...otherProps}) => {
   const { totalResult, showCount, currentPage } = dataItems;
   const paging = {
     total: totalResult,
@@ -218,11 +241,10 @@ const Paging = ({dataItems, onChange, pageSizeOptions}) => {
     current: currentPage,
     showSizeChanger: true,
     showQuickJumper: true,
-    pageSizeOptions: pageSizeOptions ? pageSizeOptions : ['10', '20', '30', '40'],
     showTotal: total => `共 ${total} 条`,
     onShowSizeChange: (currentPage, showCount) => onChange({currentPage, showCount}),
     onChange: (currentPage) => onChange({currentPage}),
-
+    ...otherProps
   };
   return <Pagination {...paging} />;
 };
