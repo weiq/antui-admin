@@ -210,7 +210,7 @@ const Oper = (prop) => (
   </div>
 );
 
-const Paging = ({dataItems, onChange}) => {
+const Paging = ({dataItems, onChange, pageSizeOptions}) => {
   const { totalResult, showCount, currentPage } = dataItems;
   const paging = {
     total: totalResult,
@@ -218,6 +218,7 @@ const Paging = ({dataItems, onChange}) => {
     current: currentPage,
     showSizeChanger: true,
     showQuickJumper: true,
+    pageSizeOptions: pageSizeOptions ? pageSizeOptions : ['10', '20', '30', '40'],
     showTotal: total => `共 ${total} 条`,
     onShowSizeChange: (currentPage, showCount) => onChange({currentPage, showCount}),
     onChange: (currentPage) => onChange({currentPage}),
