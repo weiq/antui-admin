@@ -47,7 +47,7 @@ class DataTable extends Component {
      */
     pagination: PropTypes.oneOfType([
       React.PropTypes.bool,
-      React.PropTypes.string
+      React.PropTypes.object
     ]),
     /**
      * 选中表格行回调 function(selectedRowKeys, selectedRows)
