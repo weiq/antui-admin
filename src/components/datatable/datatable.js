@@ -154,7 +154,7 @@ class DataTable extends Component {
     let xwidth = 0;
     let cols = columns.filter((col) => {
       if (col.tableItem) {
-        xwidth += col.width || 120; 
+        xwidth += col.tableItem.width || 120; 
         return true;
       } else {
         return false;
