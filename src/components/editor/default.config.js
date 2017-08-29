@@ -4,7 +4,7 @@ export default (quill, container) => ({
   modules: {
     toolbar: {
       container: [
-        [{'size': ['small', false, 'large', 'huge']}],
+        [{'size': ['10px', '12px', '18px', '32px']}],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [{'list': 'ordered'}, {'list': 'bullet'}, 
         {'indent': '-1'}, {'indent': '+1'}, { 'align': [] }],

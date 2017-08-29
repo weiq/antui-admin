@@ -1,4 +1,19 @@
 import Quill from 'quill';
+let AlignStyle = Quill.import('attributors/style/align')
+let BackgroundStyle = Quill.import('attributors/style/background')
+let ColorStyle = Quill.import('attributors/style/color')
+let DirectionStyle = Quill.import('attributors/style/direction')
+let FontStyle = Quill.import('attributors/style/font')
+
+Quill.register(AlignStyle, true);
+Quill.register(BackgroundStyle, true);
+Quill.register(ColorStyle, true);
+Quill.register(DirectionStyle, true);
+Quill.register(FontStyle, true);
+
+let SizeAttributor = Quill.import('attributors/style/size');
+SizeAttributor.whitelist = ['10px', '12px', '18px', '32px'];
+Quill.register(SizeAttributor, true);
 
 export default {
   createEditor: function($el, config, clazz) {
