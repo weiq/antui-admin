@@ -11,9 +11,9 @@ export default ({form, name, formFieldOptions = {}, record, initialValue, rules,
   if (record) {
     initval = record[name];
   }
-  
+
   // 如果存在初始值
-  if (initval) {
+  if (initval !== null && typeof (initval) !== "undefined") {
     formFieldOptions.initialValue = initval;
   }
 

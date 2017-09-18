@@ -15,7 +15,7 @@ export const CascadeForm = ({name, form, record, formFieldOptions = {}, initialV
   }
   
   // 如果存在初始值
-  if (initval) {
+  if (initval !== null && typeof (initval) !== "undefined") {
     formFieldOptions.initialValue = initval;
   }
 
