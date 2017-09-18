@@ -6,9 +6,15 @@ import {Select} from 'antd';
 export default ({form, name, dict, formFieldOptions = {}, record, initialValue, rules, onChange, ...otherProps}) => {
   const { getFieldDecorator } = form;
 
+  let initval = initialValue;
+  
+  if (record) {
+    initval = record[name];
+  }
+  
   // 如果存在初始值
-  if (record && record[name] || initialValue) {
-    formFieldOptions.initialValue = record && record[name] || initialValue;
+  if (initval) {
+    formFieldOptions.initialValue = initval;
   }
 
   // 如果有rules

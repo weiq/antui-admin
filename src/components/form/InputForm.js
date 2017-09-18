@@ -6,8 +6,13 @@ import {Input} from 'antd';
 export default ({form, name, formFieldOptions = {}, record, initialValue, rules, onChange, preview, ...otherProps}) => {
   const { getFieldDecorator } = form;
 
+  let initval = initialValue;
+
+  if (record) {
+    initval = record[name];
+  }
+  
   // 如果存在初始值
-  let initval = record && record[name] || initialValue;
   if (initval) {
     formFieldOptions.initialValue = initval;
   }
