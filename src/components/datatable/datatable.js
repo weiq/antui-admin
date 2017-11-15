@@ -79,11 +79,9 @@ class DataTable extends Component {
   }
 
   getSelectedRowKeys(props) {
-    let selectedRowKeys = [];
     if ('selectedRowKeys' in props) {
-      selectedRowKeys = props.selectedRowKeys;
+      return props.selectedRowKeys;
     }
-    return selectedRowKeys;
   }
 
   componentWillReceiveProps(nextProps) {
