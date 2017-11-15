@@ -1,6 +1,6 @@
 {
   "name": "antui-admin",
-  "version": "0.1.36",
+  "version": "0.1.37",
   "description": "admin ui for antd",
   "main": "./lib",
   "scripts": {
