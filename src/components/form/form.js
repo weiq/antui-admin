@@ -71,6 +71,14 @@ class FormComp extends React.Component {
      * 是否是提交中状态
      */
     loading: PropTypes.bool,
+
+    /**
+     * 是否显示底部按钮，或传入自定义的底部按钮
+     */
+    footer: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.node
+    ]),
   }
 
   static defaultProps = {
@@ -123,7 +131,7 @@ class FormComp extends React.Component {
 
   render () {
     const {className, prefixCls, type, rows, cols, formItemLayout: _formItemLayout,
-      columns, record, group, children, form, preview, loading, ...otherProps} = this.props;
+      columns, record, group, children, form, preview, loading, footer, ...otherProps} = this.props;
 
     delete otherProps.onSubmit;
 
@@ -132,13 +140,12 @@ class FormComp extends React.Component {
       "form-grid": type === "grid",
     });
 
-    const colopts = type === "grid" ? objectAssign(this.cols, cols) : {};
+    let colopts = type === "grid" ? objectAssign(this.cols, cols) : {};
     const rowopts = type === "grid" ? objectAssign(this.rows, rows) : {};
 
     let ComponentRow = type === "inline" ? "section" : Row;
     let ComponentCol = type === "inline" ? "div" : Col;
     let ComponentItem = Form.Item;
-    const formItemLayout = type === "grid" ? _formItemLayout : {};
 
     let formFields = columns.filter(col => col.formItem);
     formFields = group ? formFields.filter(col => col.formItem && col.formItem.group === group) : formFields;
@@ -155,6 +162,21 @@ class FormComp extends React.Component {
                 record,
                 preview,
               }, field.formItem);
+              
+              // 传入个性化的列大小，改变这个值可以改变每行元素的个数
+              let col = {...colopts};
+              if (type === "grid" && field.formItem.col) {
+                col = field.formItem.col;
+              } else if (type !== "grid") {
+                col = {};
+              }
+
+              let formItemLayout = {..._formItemLayout};
+              if (type === "grid" && field.formItem.formItemLayout) {
+                formItemLayout = field.formItem.formItemLayout;
+              } else if (type !== "grid") {
+                formItemLayout = {};
+              }
 
               switch (field.formItem.type) {
                 case 'date~' : 
@@ -163,7 +185,7 @@ class FormComp extends React.Component {
                 case 'monthDate' :
                 case 'time':
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {DateForm({
                           form: form,
@@ -178,7 +200,7 @@ class FormComp extends React.Component {
                 case 'cascade':
                 case 'cascader':
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {CascadeForm({
                           form: form,
@@ -192,7 +214,7 @@ class FormComp extends React.Component {
                   );
                 case 'select' :
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {SelectForm({
                           form: form,
@@ -207,7 +229,7 @@ class FormComp extends React.Component {
                   );
                 case 'treeSelect' :
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {TreeSelectForm({
                           form: form,
@@ -221,7 +243,7 @@ class FormComp extends React.Component {
                   );
                 case 'custom' : 
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {CustomForm({
                           form: form,
@@ -245,12 +267,12 @@ class FormComp extends React.Component {
                     placeholder={`请填写${placeholder}`}
                     repeat={field.formItem.repeat}
                     formItemLayout={formItemLayout}
-                    colopts={colopts}
+                    col={col}
                     {...otherField}
                   />;
                 default :
                   return (
-                    <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                         {InputForm({
                           form, 
@@ -267,20 +289,22 @@ class FormComp extends React.Component {
             })
           }
           {children}
-          <ComponentCol className="form-btns col-item" {...colopts}>
-            <Button 
-              title="提交"
-              type="primary"
-              htmlType="submit"
-              icon="check"
-              loading={loading}
-            >提交</Button>
-            <Button 
-              title="重置"
-              onClick={e => this.onReset()}
-              icon="reload"
-            >重置</Button>
-          </ComponentCol>
+          {footer === undefined ? (
+            <ComponentCol className="form-btns col-item" {...colopts}>
+              <Button 
+                title="提交"
+                type="primary"
+                htmlType="submit"
+                icon="check"
+                loading={loading}
+              >提交</Button>
+              <Button 
+                title="重置"
+                onClick={e => this.onReset()}
+                icon="reload"
+              >重置</Button>
+            </ComponentCol>
+          ) : footer}
         </ComponentRow>
       </Form>
     );

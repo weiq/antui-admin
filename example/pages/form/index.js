@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from '../../../src';
+import { Form, Button } from '../../../src';
 import Page from '../../component/page';
 import moment from 'moment';
 import './style.less';
@@ -7,6 +7,15 @@ import './style.less';
 export default class DataTableDemo extends React.Component {
   onSubmit(values) {
     console.log(values);
+  }
+
+  onCustomSubmit = (values) => {
+    const {validateFields} = this.refs.form;
+    validateFields((err, values) => {
+      if (!err) {
+        console.log(values);
+      }
+    });
   }
 
   render() {
@@ -48,6 +57,20 @@ export default class DataTableDemo extends React.Component {
           <h3>日期时间</h3>
           <section className="w400">
             <Form columns={columns6} onSubmit={this.onSubmit} />
+          </section>
+          <h3>多列（使用col和formItemLayout）</h3>
+          <section className="w600">
+            <Form columns={columns7} onSubmit={this.onSubmit} />
+          </section>
+          <h3>自定义提交按钮</h3>
+          <section className="w600">
+            <Form 
+              ref="form"
+              columns={columns5} 
+              footer={
+                <Button style={{display: 'block', margin: '0 auto'}} size="large" onClick={this.onCustomSubmit}>注册</Button>
+              }
+            />
           </section>
         </nav>
       </Page>
@@ -193,6 +216,51 @@ const columns6 = [{
   title: "日期范围",
   name: "rangedate",
   formItem: {
+    type: "date~"
+  }
+}, {
+  title: "日期范围(时间)",
+  name: "rangedate2",
+  formItem: {
+    type: "date~",
+    showTime: true
+  }
+}, {
+  title: "时间",
+  name: "time",
+  formItem: {
+    type: "time"
+  }
+}];
+
+const columns7 = [{
+  title: "日期",
+  name: "date",
+  formItem: {
+    type: "date",
+  }
+}, {
+  title: "日期(时间)",
+  name: "datetime",
+  formItem: {
+    type: "datetime",
+    col: {span: 12},
+    formItemLayout: {
+      labelCol: { span: 12 },
+      wrapperCol: { span: 12 },
+    },
+    showTime: true,
+    initialValue: moment()
+  }
+}, {
+  title: "日期范围",
+  name: "rangedate",
+  formItem: {
+    col: {span: 12},
+    formItemLayout: {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 16 },
+    },
     type: "date~"
   }
 }, {
