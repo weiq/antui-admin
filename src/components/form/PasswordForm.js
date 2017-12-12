@@ -13,7 +13,7 @@ export default class PasswordForm extends React.Component {
     ComponentCol: PropTypes.node,
     ComponentItem: PropTypes.node,
     formItemLayout: PropTypes.object,
-    colopts: PropTypes.object,
+    col: PropTypes.object,
     repeat: PropTypes.bool,
     type: PropTypes.string,
   }
@@ -46,7 +46,7 @@ export default class PasswordForm extends React.Component {
 
   render() {
     const {form, name, formFieldOptions = {}, rules, placeholder, type,
-      formItemLayout, colopts, repeat, ...otherProps} = this.props;
+      formItemLayout, col, repeat, ...otherProps} = this.props;
     
     const { getFieldDecorator } = form;
 
@@ -67,7 +67,7 @@ export default class PasswordForm extends React.Component {
 
     return (
       <div className="col-item col-item-password-wrap">
-        <ComponentCol className="col-item col-item-password" {...colopts}>
+        <ComponentCol className="col-item col-item-password" {...col}>
           <Form.Item {...formItemLayout} label={otherProps.title} hasFeedback className="col-item-content">
             {getFieldDecorator(name, formFieldOptions)(
               <Input type="password" placeholder={placeholder} />
@@ -75,7 +75,7 @@ export default class PasswordForm extends React.Component {
           </Form.Item>
         </ComponentCol>
         {repeat ? (
-          <ComponentCol className="col-item col-item-repeat-password" {...colopts}>
+          <ComponentCol className="col-item col-item-repeat-password" {...col}>
             <Form.Item {...formItemLayout} label={"确认" + otherProps.title} hasFeedback className="col-item-content">
               {getFieldDecorator(name + "_repeat", {
                 rules: [{
