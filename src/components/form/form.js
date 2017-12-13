@@ -190,6 +190,7 @@ class FormComp extends React.Component {
                         {DateForm({
                           form: form,
                           type: field.formItem.type,
+                          placeholder={typeOf placeholder === "string" ? `请输入${placeholder}` : placeholder}
                           style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
                           format: field.formItem.format,
                           ...otherField
