@@ -184,17 +184,20 @@ class FormComp extends React.Component {
                 case 'date':
                 case 'monthDate' :
                 case 'time':
+                  const dateProps = {
+                    form: form,
+                    type: field.formItem.type,
+                    style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
+                    format: field.formItem.format,
+                    ...otherField
+                  };
+                  if (field.formItem.placeholder) {
+                    dateProps.placeholder = field.formItem.placeholder;
+                  }
                   return (
                     <ComponentCol key={`col-${i}`} className="col-item" {...col}>
                       <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
-                        {DateForm({
-                          form: form,
-                          type: field.formItem.type,
-                          placeholder={typeOf placeholder === "string" ? `请输入${placeholder}` : placeholder}
-                          style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
-                          format: field.formItem.format,
-                          ...otherField
-                        })}
+                        {DateForm(dateProps)}
                       </ComponentItem>
                     </ComponentCol>
                   );

@@ -136,14 +136,21 @@ class SearchBar extends React.Component {
                   case 'datetime': 
                   case 'date':
                   case 'monthDate' :
+                    const dateProps = {
+                      form,
+                      type: field.searchItem.type,
+                      style: type === "inline" ? {width: width || this.width[field.searchItem.type]} : {},
+                      format: field.searchItem.format,
+                      ...otherField
+                    };
+                    if (field.searchItem.placeholder) {
+                      dateProps.placeholder = field.searchItem.placeholder;
+                    }
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
-                          <DateForm 
-                            form={form}
-                            type={field.searchItem.type}
-                            style={type === "inline" ? {width: width || this.width[field.searchItem.type]} : {}}
-                            {...otherField}
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
+                          <DateForm
+                            {...dateProps}
                           />
                         </ComponentItem>
                       </ComponentCol>
@@ -152,7 +159,7 @@ class SearchBar extends React.Component {
                   case 'cascader':
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                           <CascadeForm 
                             form={form}
                             allowClear
@@ -167,7 +174,7 @@ class SearchBar extends React.Component {
                   case 'select' :
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                           <SelectForm 
                             form={form}
                             allowClear
@@ -183,7 +190,7 @@ class SearchBar extends React.Component {
                   case 'treeSelect' :
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                           <TreeSelectForm 
                             form={form}
                             allowClear
@@ -198,7 +205,7 @@ class SearchBar extends React.Component {
                   case 'custom' : 
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                           <CustomForm 
                             form={form}
                             render={field.searchItem.render}
@@ -212,7 +219,7 @@ class SearchBar extends React.Component {
                   default :
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
-                        <ComponentItem {...formItemLayout} label={placeholder} className="col-item-content">
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
                           <InputForm 
                             form={form}
                             formFieldOptions={{rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]}}

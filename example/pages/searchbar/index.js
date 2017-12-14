@@ -95,7 +95,8 @@ const columns3 = [{
   title: "选择时间",
   name: "date2",
   searchItem: {
-    type: "date~"
+    type: "date~",
+    placeholder: ['这是开始时间', '这是结束时间']
   }
 }, {
   title: "选择时间",
