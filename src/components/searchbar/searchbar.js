@@ -5,6 +5,11 @@ import objectAssign from 'object-assign';
 import {InputForm, SelectForm, DateForm, CascadeForm, TreeSelectForm, CustomForm} from '../form';
 const createForm = Form.create;
 
+const PlainComp = ({className, children}) => <div className={className}>{children}</div>;
+PlainComp.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
 /**
  * 搜索条
  */
@@ -104,15 +109,15 @@ class SearchBar extends React.Component {
     const colopts = type === "grid" ? objectAssign(this.cols, cols) : {};
     const rowopts = type === "grid" ? objectAssign(this.rows, rows) : {};
 
-    let ComponentRow = type === "inline" ? "section" : Row;
-    let ComponentCol = type === "inline" ? "div" : Col;
-    let ComponentItem = type === "inline" ? "div" : Form.Item;
+    let ComponentRow = type === "inline" ? PlainComp : Row;
+    let ComponentCol = type === "inline" ? PlainComp : Col;
+    let ComponentItem = type === "inline" ? PlainComp : Form.Item;
     const formItemLayout = type === "grid" ? {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
     } : {};
 
-    let ComponentBtnGroup = type === "inline" ? Button.Group : "div";
+    let ComponentBtnGroup = type === "inline" ? Button.Group : PlainComp;
 
     let searchFields = columns.filter(col => col.searchItem);
     searchFields = group ? searchFields.filter(col => col.searchItem && col.searchItem.group === group) : searchFields;
