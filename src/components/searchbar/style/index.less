@@ -21,25 +21,34 @@
         &:hover{
           z-index: 2;
         }
-        .ant-input, .ant-select-selection{
+        .ant-input, 
+        .ant-select-selection {
           &:focus, &:active{
             z-index: 2;
           }
         } 
+        .ant-input-number-focused {
+          z-index: 2;
+        }
         .ant-select-open .ant-select-selection{
           z-index: 2;
+        }
+        .ant-input-number {
+          margin: 0;
         }
       }
       .col-item:first-child .ant-input,
       .col-item:first-child .ant-select .ant-select-selection,
-      .col-item:first-child .ant-calendar-picker .ant-input{
+      .col-item:first-child .ant-calendar-picker .ant-input,
+      .col-item:first-child .ant-input-number{
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
       }
       
       .col-item:not(:first-child) .ant-input,
       .col-item:not(:first-child) .ant-select .ant-select-selection,
-      .col-item:not(:first-child) .ant-calendar-picker .ant-input {
+      .col-item:not(:first-child) .ant-calendar-picker .ant-input,
+      .col-item:not(:first-child) .ant-input-number {
         border-radius: 0;
       }
 
@@ -71,6 +80,9 @@
     .row-item{
       .col-item{
         .ant-calendar-picker {
+          width: 100%;
+        }
+        .ant-input-number {
           width: 100%;
         }
         .col-item-content{

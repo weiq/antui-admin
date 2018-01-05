@@ -9,6 +9,7 @@ import CascadeForm from './CascadeForm';
 import TreeSelectForm from './TreeSelectForm';
 import CustomForm from './CustomForm';
 import PasswordForm from './PasswordForm';
+import InputNumber from './InputNumberForm';
 const createForm = Form.create;
 
 const PlainComp = ({className, children}) => <div className={className}>{children}</div>;
@@ -279,6 +280,20 @@ class FormComp extends React.Component {
                     col={col}
                     {...otherField}
                   />;
+                case 'number' : 
+                  return (
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
+                      <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
+                        {InputNumber({
+                          form, 
+                          style: type === "inline" ? {width: width || this.width.default} : {}, 
+                          placeholder: `请输入${placeholder}`, 
+                          maxLength: field.formItem.maxLength || "100", 
+                          ...otherField
+                        })}
+                      </ComponentItem>
+                    </ComponentCol>
+                  );
                 default :
                   return (
                     <ComponentCol key={`col-${i}`} className="col-item" {...col}>

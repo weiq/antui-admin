@@ -60,12 +60,20 @@ const columns1 = [{
     {code: "3", codeName: "333"},
   ],
   searchItem: {
-    type: "select"
+    type: "select",
   }
 }, {
   title: "角色名",
   name: "roleName",
   searchItem: {}
+}, {
+  title: "顺序",
+  name: "order",
+  searchItem: {
+    type: "number",
+    min: 1,
+    max: 99
+  }
 }];
 
 const columns2 = [{
@@ -82,6 +90,12 @@ const columns2 = [{
   ],
   searchItem: {
     type: "select"
+  }
+}, {
+  title: "顺序",
+  name: "order",
+  searchItem: {
+    type: "number"
   }
 }];
 

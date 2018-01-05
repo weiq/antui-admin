@@ -104,6 +104,12 @@ const columns1 = [{
   title: "角色名",
   name: "roleName",
   formItem: {}
+}, {
+  title: "排序",
+  name: "ordder",
+  formItem: {
+    type: "number"
+  }
 }];
 
 const columns2 = [{

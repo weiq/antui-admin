@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Form, Row, Col, Button, message} from 'antd';
 import cx from 'classnames';
 import objectAssign from 'object-assign';
-import {InputForm, SelectForm, DateForm, CascadeForm, TreeSelectForm, CustomForm} from '../form';
+import {InputForm, SelectForm, DateForm, CascadeForm, TreeSelectForm, CustomForm, InputNumberForm} from '../form';
 const createForm = Form.create;
 
 const PlainComp = ({className, children}) => <div className={className}>{children}</div>;
@@ -221,11 +221,25 @@ class SearchBar extends React.Component {
                         </ComponentItem>
                       </ComponentCol>
                     );
+                  case 'number' :
+                    return (
+                      <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
+                        <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
+                          <InputNumberForm
+                            form={form}
+                            style={type === "inline" ? {width: width || this.width.default} : {}}
+                            placeholder={placeholder || '请输入查询条件'}
+                            maxLength={field.searchItem.maxLength || "100"}
+                            {...otherField}
+                          />
+                        </ComponentItem>
+                      </ComponentCol>
+                    ); 
                   default :
                     return (
                       <ComponentCol key={`col-${i}`} className="col-item" {...colopts}>
                         <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
-                          <InputForm 
+                          <InputForm
                             form={form}
                             formFieldOptions={{rules: [{pattern: /^[^'_%&<>=?*!]*$/, message: '查询条件中不能包含特殊字符'}]}}
                             style={type === "inline" ? {width: width || this.width.default} : {}}
