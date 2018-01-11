@@ -1,5 +1,9 @@
 # AntUI-admin
 
+[![NPM version](https://img.shields.io/npm/v/antui-admin.svg?style=flat)](https://npmjs.org/package/antui-admin)
+[![NPM downloads](http://img.shields.io/npm/dm/antui-admin.svg?style=flat)](https://npmjs.org/package/antui-admin)
+[![Dependencies](https://david-dm.org/sorrycc/antui-admin/status.svg)](https://david-dm.org/sorrycc/antui-admin)
+
 ## Docs
 
 ## 安装
