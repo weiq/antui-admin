@@ -58,7 +58,7 @@ class TransferControlled extends Component {
       targetKeys={value}
       onChange={this.triggerChange}
       render={item => item.title || item.label}
-    />
+    />;
 
     if (this.otherProps.modal) {
       return (
