@@ -23,8 +23,8 @@ export default ({form, name, dict, formFieldOptions = {}, record, initialValue, 
   }
 
   // 如果需要onChange
-  if (typeof otherProps.onChange === "function") {
-    formFieldOptions.onChange = value => otherProps.onChange(form, value); // form, value
+  if (typeof onChange === "function") {
+    formFieldOptions.onChange = value => onChange(form, value); // form, value
   }
 
   return getFieldDecorator(name, formFieldOptions)(
