@@ -316,4 +316,23 @@ const columns8 = [{
       { required: true, message: '至少选择一种颜色！' }
     ]
   }
+}, {
+  title: "颜色",
+  name: "popup-color",
+  formItem: {
+    type: "transfer",
+    modal: {
+      // modal 属性
+    },
+    dataSource: [
+      {key: 1, title: 'red'},
+      {key: 2, title: 'yellow'},
+      {key: 3, title: 'blue'},
+      {key: 4, title: 'green'},
+    ],
+    onChange: (form, value) => console.log("。。。:", value),
+    rules: [
+      { required: true, message: '至少选择一种颜色！' }
+    ]
+  }
 }];
