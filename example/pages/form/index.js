@@ -72,6 +72,13 @@ export default class DataTableDemo extends React.Component {
               }
             />
           </section>
+          <h4>穿梭框</h4>
+          <section className="w400">
+            <Form 
+              columns={columns8}
+              onSubmit={this.onSubmit}
+            />
+          </section>
         </nav>
       </Page>
     );
@@ -281,5 +288,32 @@ const columns7 = [{
   name: "time",
   formItem: {
     type: "time"
+  }
+}];
+
+const columns8 = [{
+  name: "id",
+  formItem: {
+    type: "hidden"
+  }
+}, {
+  title: "颜色",
+  name: "color",
+  formItem: {
+    type: "transfer",
+    initialValue: [1, 3],
+    dataSource: [
+      {key: 1, title: 'red'},
+      {key: 2, title: 'yellow'},
+      {key: 3, title: 'blue'},
+      {key: 4, title: 'green'},
+    ],
+    onChange: (form, value) => console.log("---:", value),
+    listStyle: {
+      width: 114
+    },
+    rules: [
+      { required: true, message: '至少选择一种颜色！' }
+    ]
   }
 }];

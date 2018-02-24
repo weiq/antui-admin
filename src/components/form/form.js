@@ -10,6 +10,7 @@ import TreeSelectForm from './TreeSelectForm';
 import CustomForm from './CustomForm';
 import PasswordForm from './PasswordForm';
 import InputNumber from './InputNumberForm';
+import TransferForm from './TransferForm';
 const createForm = Form.create;
 
 const PlainComp = ({className, children}) => <div className={className}>{children}</div>;
@@ -136,7 +137,7 @@ class FormComp extends React.Component {
   }
 
   render () {
-    const {className, prefixCls, type, rows, cols, formItemLayout: _formItemLayout,
+    const {className, prefixCls, type, rows, cols, formItemLayout: _formItemLayout, 
       columns, record, group, children, form, preview, loading, footer, ...otherProps} = this.props;
 
     delete otherProps.onSubmit;
@@ -246,6 +247,18 @@ class FormComp extends React.Component {
                           allowClear: true,
                           style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
                           placeholder: `请选择${placeholder}`,
+                          ...otherField
+                        })}
+                      </ComponentItem>
+                    </ComponentCol>
+                  );
+                case 'transfer': 
+                  return (
+                    <ComponentCol key={`col-${i}`} className="col-item" {...col}>
+                      <ComponentItem {...formItemLayout} label={field.title} className="col-item-content">
+                        {TransferForm({
+                          form: form,
+                          style: type === "inline" ? {width: width || this.width[field.formItem.type]} : {},
                           ...otherField
                         })}
                       </ComponentItem>
