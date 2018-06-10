@@ -1,3 +1,7 @@
+# Deprecation Warning
+这个项目是当初结合学习react与项目中实际应用做出的组件库，从那时起，工具和最佳实践发生了巨大的变化。为了尽可能地获得最现代的体验，我推荐您使用
+[dva-boot](https://github.com/LANIF-UI/dva-boot)作为项目的脚手架它只包含了运行程序所必需的架构没有任何多余的东西，或者可以选择包含了最常用的UI组件与常用实例的[dva-boot-admin](https://github.com/LANIF-UI/dva-boot-admin)，来获得最佳的用户体验。感谢所有在过去一年中使这个项目的人。
+
 # AntUI-admin
 
 [![NPM version](https://img.shields.io/npm/v/antui-admin.svg?style=flat)](https://npmjs.org/package/antui-admin)
